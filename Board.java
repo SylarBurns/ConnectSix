@@ -17,4 +17,4 @@ public void setStone(int x, int y, String S) {
 }
 }
 
-// My name is Su Hyun :)
+// My name is Su Hyun :) I am Su hyun.
