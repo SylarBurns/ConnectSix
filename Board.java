@@ -15,6 +15,9 @@ public void initiateBoard() {
 public void setStone(int x, int y, String S) {
 	board[x][y].setState(S);
 }
+public void startGame() {
+	System.out.println("Let's Start the Game!");
+}
 }
 
 // My name is Su Hyun :) I am Su hyun.
