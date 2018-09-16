@@ -15,5 +15,8 @@ public void setStone(int x, int y, String S) {
 public void startGame() {
 	System.out.println("Let's Start the Game!");
 }
+public void endGame(){
+ 	System.out.println("Game Over");
+}
 }
 
