@@ -16,3 +16,5 @@ public void setStone(int x, int y, String S) {
 	board[x][y].setState(S);
 }
 }
+
+// My name is Su Hyun :)
