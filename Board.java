@@ -1,6 +1,3 @@
-package Connect6;
-
-
 public class Board {
 	public Coordinate[][] board = new Coordinate[19][19];	
 public void initiateBoard() {
@@ -20,4 +17,3 @@ public void startGame() {
 }
 }
 
-// My name is Su Hyun :) I am Su hyun.

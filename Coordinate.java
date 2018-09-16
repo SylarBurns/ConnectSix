@@ -1,5 +1,3 @@
-package Connect6;
-
 public class Coordinate {
 	private int X_Cor;
 	private int Y_Cor;
