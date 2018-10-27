@@ -73,13 +73,15 @@ class Board extends JPanel {
 					
 				}
 			}
+
+
 		c1.checkrow();
 		c1.checkcol();
 		c1.checkSla();
 		c1.checkBackSla();
 		c1.check();
 
-		// if(c1.checker == true)	win = true;
+		if(c1.checker == true)	win = true;
 		
 
 		if(win == true)
@@ -94,9 +96,7 @@ class Board extends JPanel {
 		g.setColor(new Color(255,0,0));
 		g.fillRect(StoneX+2,StoneY+2,26,26);
 			
-		if(k==81)		g.drawString("Draw", 760, 100);
-			
-
+		if(k==361)		g.drawString("Draw", 760, 100);
 	}
 
 }

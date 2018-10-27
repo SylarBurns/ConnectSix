@@ -23,18 +23,20 @@ import java.util.Scanner;
 public class Gomoku{
 
 
-	private static final int B = -1;
+	private static final int B = 0;
 	private static final int W = 1;
-	private static final int N = 0;
+	private static final int N = -1;
 
-	public static Location [] board = new Location[361];
+	public static Location [] board    = new Location[361];
 	public static Location [] setboard = new Location[361];
 
 	public static String message = "" ;
 	public static boolean win = false;
 	public static int StoneX = 370;
 	public static int StoneY = 370;
-	public static int k = 0;
+	public static int k = 1;
+	public static int turnW = 0;//White turn
+	public static int turnB = 0;//Black turn
 
 	public static void main(String[] args){
 
@@ -74,13 +76,17 @@ public class Gomoku{
 		int keycode = 0;
 		ck c1 = new ck();
 
+		setboard[0].SetLocation(370, 370) ;
+		board[180].Setis(true) ;
+		board[180].BW = B ; 
+		turnW = 2;  // white has two turn in first
+
 		do{
 
 			Scanner s = new Scanner(System.in);
 			win = Board.win;
 
 			if(win == false)  keycode = s.next().charAt(0);
-			
 
 			switch(keycode){
 
@@ -118,7 +124,7 @@ public class Gomoku{
 				case 'x': 
 
 				setboard[k].SetLocation(User.GetX(),User.GetY());
-				for(i=0;i<361;i++){
+				for(i=1;i<361;i++){
 					if((setboard[k].GetX()==board[i].GetX())&&(setboard[k].GetY()==board[i].GetY()))
 					{
 
@@ -126,7 +132,18 @@ public class Gomoku{
 						{
 
 							board[i].Setis(true);
-							board[i].BW = k%2;
+							if(turnW > 0)
+							{
+								board[i].BW = W;
+								turnW-- ;
+								if(turnW == 0) turnB = 2;
+							}
+							else if(turnB > 0) 
+							{
+								board[i].BW = B;
+								turnB-- ;
+								if(turnB == 0) turnW = 2;
+							}
 							k++;
 
 						}
@@ -140,10 +157,9 @@ public class Gomoku{
 			frame.repaint();
 		
 	}while(keycode != 'q');
-	
-		 
-		 
+
 	}
+
 }
 
 
