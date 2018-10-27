@@ -23,90 +23,35 @@ public ck(){
 	
 public void checkrow(){
 	
-	for(int n=0;n<9;n++){
-		if(Gomoku.board[(n*9)+0].BW!=N){
-			if((Gomoku.board[(n*9)+0].BW==Gomoku.board[(n*9)+1].BW)&&(Gomoku.board[(n*9)+1].BW==Gomoku.board[(n*9)+2].BW)&&(Gomoku.board[(n*9)+2].BW==Gomoku.board[(n*9)+3].BW)&&(Gomoku.board[(n*9)+3].BW==Gomoku.board[(n*9)+4].BW))
-			row = true;
-		}
-		if(Gomoku.board[(n*9)+1].BW!=N){
-			if((Gomoku.board[(n*9)+1].BW==Gomoku.board[(n*9)+2].BW)&&(Gomoku.board[(n*9)+2].BW==Gomoku.board[(n*9)+3].BW)&&(Gomoku.board[(n*9)+3].BW==Gomoku.board[(n*9)+4].BW)&&(Gomoku.board[(n*9)+4].BW==Gomoku.board[(n*9)+5].BW))
-			row = true;
-		}
-		if(Gomoku.board[(n*9)+2].BW!=N){
-			if((Gomoku.board[(n*9)+2].BW==Gomoku.board[(n*9)+3].BW)&&(Gomoku.board[(n*9)+3].BW==Gomoku.board[(n*9)+4].BW)&&(Gomoku.board[(n*9)+4].BW==Gomoku.board[(n*9)+5].BW)&&(Gomoku.board[(n*9)+5].BW==Gomoku.board[(n*9)+6].BW))
-			row = true;
-		}
-		if(Gomoku.board[(n*9)+3].BW!=N){
-			if((Gomoku.board[(n*9)+3].BW==Gomoku.board[(n*9)+4].BW)&&(Gomoku.board[(n*9)+4].BW==Gomoku.board[(n*9)+5].BW)&&(Gomoku.board[(n*9)+5].BW==Gomoku.board[(n*9)+6].BW)&&(Gomoku.board[(n*9)+6].BW==Gomoku.board[(n*9)+7].BW))
-			row = true;
-		}
-		if(Gomoku.board[(n*9)+4].BW!=N){
-			if((Gomoku.board[(n*9)+4].BW==Gomoku.board[(n*9)+5].BW)&&(Gomoku.board[(n*9)+5].BW==Gomoku.board[(n*9)+6].BW)&&(Gomoku.board[(n*9)+6].BW==Gomoku.board[(n*9)+7].BW)&&(Gomoku.board[(n*9)+7].BW==Gomoku.board[(n*9)+8].BW))
-			row = true;
+	for(int n=0;n<19;n++){
+		for(int i=0; i<15;i++) {
+			if(Gomoku.board[(n*19)+i].BW!=N){
+				if((Gomoku.board[(n*19)+0].BW==Gomoku.board[(n*19)+1].BW)&&(Gomoku.board[(n*19)+1].BW==Gomoku.board[(n*19)+2].BW)&&(Gomoku.board[(n*19)+2].BW==Gomoku.board[(n*19)+3].BW)&&(Gomoku.board[(n*19)+3].BW==Gomoku.board[(n*19)+4].BW&&(Gomoku.board[(n*19)+4].BW==Gomoku.board[(n*19)+5].BW)))
+				row = true;
+			}
 		}
 	}
-
 }
-
 public void checkcol(){
 
-	for(int n=0;n<9;n++){
-		if(Gomoku.board[n].BW!=N){
-		if((Gomoku.board[n].BW==Gomoku.board[n+9].BW)&&(Gomoku.board[n+9].BW==Gomoku.board[n+18].BW)&&(Gomoku.board[n+18].BW==Gomoku.board[n+27].BW)&&(Gomoku.board[n+27].BW==Gomoku.board[n+36].BW))
+	for(int n=0;n<19;n++){
+		for(int i=0; i<=266;i+=i*9) {
+		if(Gomoku.board[n+i].BW!=N){
+		if((Gomoku.board[n+i].BW==Gomoku.board[n+i+9].BW)&&(Gomoku.board[n+i+9].BW==Gomoku.board[n+i+18].BW)&&(Gomoku.board[n+i+18].BW==Gomoku.board[n+i+27].BW)&&(Gomoku.board[n+i+27].BW==Gomoku.board[n+i+36].BW)&&(Gomoku.board[n+i+36].BW==Gomoku.board[n+i+45].BW))
 		col = true;
 		}
-		if(Gomoku.board[n+9].BW!=N){
-		if((Gomoku.board[n+9].BW==Gomoku.board[n+18].BW)&&(Gomoku.board[n+18].BW==Gomoku.board[n+27].BW)&&(Gomoku.board[n+27].BW==Gomoku.board[n+36].BW)&&(Gomoku.board[n+36].BW==Gomoku.board[n+45].BW))
-		col = true;
-		}
-		if(Gomoku.board[n+18].BW!=N){
-		if((Gomoku.board[n+18].BW==Gomoku.board[n+27].BW)&&(Gomoku.board[n+27].BW==Gomoku.board[n+36].BW)&&(Gomoku.board[n+36].BW==Gomoku.board[n+45].BW)&&(Gomoku.board[n+45].BW==Gomoku.board[n+54].BW))
-		col = true;
-		}
-		if(Gomoku.board[n+27].BW!=N){
-		if((Gomoku.board[n+27].BW==Gomoku.board[n+36].BW)&&(Gomoku.board[n+36].BW==Gomoku.board[n+45].BW)&&(Gomoku.board[n+45].BW==Gomoku.board[n+54].BW)&&(Gomoku.board[n+54].BW==Gomoku.board[n+63].BW))
-		col = true;
-		}
-		if(Gomoku.board[n+36].BW!=N){
-		if((Gomoku.board[n+36].BW==Gomoku.board[n+45].BW)&&(Gomoku.board[n+45].BW==Gomoku.board[n+54].BW)&&(Gomoku.board[n+54].BW==Gomoku.board[n+63].BW)&&(Gomoku.board[n+63].BW==Gomoku.board[n+72].BW))
-		col = true;
 		}
 	}
-
 }
 
 public void checkSla(){
-		
-	for(int n=0;n<5;n++){
-		if(Gomoku.board[n].BW!=N){
-			if((Gomoku.board[n].BW==Gomoku.board[n+10].BW)&&(Gomoku.board[n+10].BW==Gomoku.board[n+20].BW)&&(Gomoku.board[n+20].BW==Gomoku.board[n+30].BW)&&(Gomoku.board[n+30].BW==Gomoku.board[n+40].BW))
+	for(int i=0;i<=266;i+=9) {	
+	for(int n=i;n<(i+15);n++) {
+		if(Gomoku.board[n].BW!=N) {
+			if((Gomoku.board[n].BW==Gomoku.board[n+10].BW)&&(Gomoku.board[n+10].BW==Gomoku.board[n+20].BW)&&(Gomoku.board[n+20].BW==Gomoku.board[n+30].BW)&&(Gomoku.board[n+30].BW==Gomoku.board[n+40].BW)&&(Gomoku.board[n+40].BW==Gomoku.board[n+50].BW))
 			Sla = true;
 		}
 	}
-	for(int n=9;n<14;n++){
-		if(Gomoku.board[n].BW!=N){
-			if((Gomoku.board[n].BW==Gomoku.board[n+10].BW)&&(Gomoku.board[n+10].BW==Gomoku.board[n+20].BW)&&(Gomoku.board[n+20].BW==Gomoku.board[n+30].BW)&&(Gomoku.board[n+30].BW==Gomoku.board[n+40].BW))
-			Sla = true;
-		}
-	}
-	
-	for(int n=18;n<23;n++){
-		if(Gomoku.board[n].BW!=N){
-			if((Gomoku.board[n].BW==Gomoku.board[n+10].BW)&&(Gomoku.board[n+10].BW==Gomoku.board[n+20].BW)&&(Gomoku.board[n+20].BW==Gomoku.board[n+30].BW)&&(Gomoku.board[n+30].BW==Gomoku.board[n+40].BW))
-			Sla = true;
-		}
-	}
-	for(int n=27;n<32;n++){
-		if(Gomoku.board[n].BW!=N){
-			if((Gomoku.board[n].BW==Gomoku.board[n+10].BW)&&(Gomoku.board[n+10].BW==Gomoku.board[n+20].BW)&&(Gomoku.board[n+20].BW==Gomoku.board[n+30].BW)&&(Gomoku.board[n+30].BW==Gomoku.board[n+40].BW))
-			Sla = true;
-		}
-	}
-	for(int n=36;n<41;n++){
-		if(Gomoku.board[n].BW!=N){
-			if((Gomoku.board[n].BW==Gomoku.board[n+10].BW)&&(Gomoku.board[n+10].BW==Gomoku.board[n+20].BW)&&(Gomoku.board[n+20].BW==Gomoku.board[n+30].BW)&&(Gomoku.board[n+30].BW==Gomoku.board[n+40].BW))
-			Sla = true;
-		}
 	}
 }
 
