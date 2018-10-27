@@ -27,37 +27,37 @@ public class Gomoku{
 	private static final int W = 1;
 	private static final int N = 0;
 
-	public static Location [] board = new Location[81];
-	public static Location [] setboard = new Location[81];
+	public static Location [] board = new Location[361];
+	public static Location [] setboard = new Location[361];
 
 	public static String message = "" ;
 	public static boolean win = false;
-	public static int StoneX = 210;
-	public static int StoneY = 210;
+	public static int StoneX = 710;
+	public static int StoneY = 710;
 	public static int k = 0;
 
 	public static void main(String[] args){
 
 		JFrame frame = new JFrame("Gomoku") ;
-		GomokuBoard GB = new GomokuBoard();
+		Board GB = new Board();
 		frame.getContentPane().add(GB) ;
 		
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE) ;
-		frame.setSize(500, 700) ;
+		frame.setSize(1000, 1200) ;
 		frame.setVisible(true) ;
 		
 		int num=0;
 		int numx=0;
 		int numy=0;
 		int i,j;
-		win = GomokuBoard.win;
+		win = Board.win;
 		
 		// Implement Here
 
-		for(i=0; i<9; i++){
-			for(j=0; j<9; j++){
+		for(i=0; i<19; i++){
+			for(j=0; j<19; j++){
 
-				num = (i*9) + j;
+				num = (i*19) + j;
 				numx = 10 +(50*j);
 				numy = 10 +(50*i);
 				board[num] = new Location();
@@ -78,7 +78,7 @@ public class Gomoku{
 		do{
 
 			Scanner s = new Scanner(System.in);
-			win = GomokuBoard.win;
+			win = Board.win;
 			if(win == false){
 			keycode = s.next().charAt(0);
 			}
@@ -93,7 +93,7 @@ public class Gomoku{
 
 			case 's':
 
-			if(StoneY < 410){
+			if(StoneY < 910){
 				StoneY = StoneY + 50;
 			}
 			User.SetLocation(StoneX, StoneY);
@@ -109,7 +109,7 @@ public class Gomoku{
 
 			case 'd':
 
-			if(StoneX < 410){
+			if(StoneX < 910){
 				StoneX = StoneX + 50;
 			}
 			User.SetLocation(StoneX, StoneY);
@@ -118,7 +118,7 @@ public class Gomoku{
 			case 'x': 
 
 			setboard[k].SetLocation(User.GetX(),User.GetY());
-			for(i=0;i<81;i++){
+			for(i=0;i<361;i++){
 				if((setboard[k].GetX()==board[i].GetX())&&(setboard[k].GetY()==board[i].GetY())){
 					if(board[i].Getis() == false){
 						board[i].Setis(true);

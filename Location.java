@@ -11,8 +11,8 @@ class Location {
 
 
 	public Location(){
-		Lox = 200;
-		Loy = 200;
+		Lox = 700;
+		Loy = 700;
 		BW = N;
 		is = false;
 	}
