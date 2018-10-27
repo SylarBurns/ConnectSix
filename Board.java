@@ -1,4 +1,3 @@
-
 import java.util.* ;
 import javax.swing.* ;
 import javax.swing.event.*;
@@ -21,21 +20,20 @@ import java.awt.event.KeyListener;
 import java.awt.List;
 import java.util.Scanner;
 
-class GomokuBoard extends JPanel {
+class Board extends JPanel {
 	
 	private static final int B = 0;
 	private static final int W = 1;
 	private static final int N = -1;
-	private static Location [] board = new Location[81];
+	private static Location [] board = new Location[361];
 	public static boolean win;
 
 	public void paint(Graphics g) {
-		// Implement Here
+
 
 		int StoneX =Gomoku.StoneX; 
 		int StoneY =Gomoku.StoneY; 
-		int [] sX = new int[81];
-		int [] sY = new int[81];
+
 		int k;
 		
 
@@ -43,38 +41,35 @@ class GomokuBoard extends JPanel {
 
 		ck c1 = new ck();
 
-		for(int i=0;i<81;i++){
-			board[i] = new Location();
-			board[i] = Gomoku.board[i];
+		for(int i=0;i<361;i++){
+
+			board[i] = new Location()  ;
+			board[i] = Gomoku.board[i] ;
 		}
 		
-		g.drawString("Up : w", 25, 4650);
-		g.drawString("Down : s", 25, 480);
-		g.drawString("Left : a", 25, 495);
-		g.drawString("Right : d\n", 25, 510);
-		g.drawString("Stone Down : space\n", 25, 525);
+		g.drawString("Up : w", 760, 25) ;
+		g.drawString("Down : s", 760, 40) ;
+		g.drawString("Left : a", 760, 55) ;
+		g.drawString("Right : d\n", 760, 70) ;
+		g.drawString("Stone Down : space\n", 760, 85) ;
 
-			for(int i=25; i<430; i=i+50){
+			for(int i=25; i<750; i=i+40){
 				
-			g.drawLine(25, i, 425, i);
-			g.drawLine(i, 25, i, 425);
+			g.drawLine(25, i, 745, i);
+			g.drawLine(i, 25, i, 745);
 
 			}
-		
-			for(int i=0; i<81; i++){
 
-				if(board[i].Getis()==true){
 
-					if(board[i].BW == B){
+			for(int i=0; i<361; i++){
 
-						g.setColor(new Color(0,0,0));
+				if(board[i].Getis()==true)
+				{
 
-					}else{
-
-						g.setColor(new Color(255,255,255));
-					}
-
-					g.fillOval(board[i].GetX()-10,board[i].GetY()-10,50,50);
+					if(board[i].BW == B)		g.setColor(new Color(0,0,0));
+					else						g.setColor(new Color(255,255,255));
+					
+					g.fillOval(board[i].GetX()-5,board[i].GetY()-5,40,40);
 					
 				}
 			}
@@ -84,27 +79,24 @@ class GomokuBoard extends JPanel {
 		c1.checkBackSla();
 		c1.check();
 
-		if(c1.checker == true){
-			win = true;
-		}
+		// if(c1.checker == true)	win = true;
+		
 
-		if(win == true){
+		if(win == true)
+		{
 			g.setColor(new Color(0,0,0));
-			if(k%2==1){
-			g.drawString("Black win",25, 550);
-			}else{
-			g.drawString("White win", 25, 550);
-			}
+
+			if(k%2==1)	g.drawString("Black win",760, 100);
+			else		g.drawString("White win", 760, 100);
+			
 		}
 	
 		g.setColor(new Color(255,0,0));
-		g.fillRect(StoneX,StoneY,30,30);
+		g.fillRect(StoneX+2,StoneY+2,26,26);
 			
-		if(k==81){
-			g.drawString("Draw", 25, 540);
+		if(k==81)		g.drawString("Draw", 760, 100);
 			
-		}
-	}
 
+	}
 
 }

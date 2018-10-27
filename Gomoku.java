@@ -27,39 +27,37 @@ public class Gomoku{
 	private static final int W = 1;
 	private static final int N = 0;
 
-	public static Location [] board = new Location[81];
-	public static Location [] setboard = new Location[81];
+	public static Location [] board = new Location[361];
+	public static Location [] setboard = new Location[361];
 
 	public static String message = "" ;
 	public static boolean win = false;
-	public static int StoneX = 210;
-	public static int StoneY = 210;
+	public static int StoneX = 370;
+	public static int StoneY = 370;
 	public static int k = 0;
 
 	public static void main(String[] args){
 
 		JFrame frame = new JFrame("Gomoku") ;
-		GomokuBoard GB = new GomokuBoard();
+		Board GB = new Board();
 		frame.getContentPane().add(GB) ;
 		
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE) ;
-		frame.setSize(500, 700) ;
+		frame.setSize(1100, 1100) ;
 		frame.setVisible(true) ;
 		
 		int num=0;
 		int numx=0;
 		int numy=0;
 		int i,j;
-		win = GomokuBoard.win;
-		
-		// Implement Here
+		win = Board.win;
 
-		for(i=0; i<9; i++){
-			for(j=0; j<9; j++){
+		for(i=0; i<19; i++){
+			for(j=0; j<19; j++){
 
-				num = (i*9) + j;
-				numx = 10 +(50*j);
-				numy = 10 +(50*i);
+				num = (i*19) + j;
+				numx = 10 +(40*j);
+				numy = 10 +(40*i);
 				board[num] = new Location();
 				board[num].SetLocation(numx, numy);
 				board[num].Setis(false);
@@ -75,67 +73,71 @@ public class Gomoku{
 		User.SetLocation(StoneX, StoneY);
 		int keycode = 0;
 		ck c1 = new ck();
+
 		do{
 
 			Scanner s = new Scanner(System.in);
-			win = GomokuBoard.win;
-			if(win == false){
-			keycode = s.next().charAt(0);
-			}
-		switch(keycode){
+			win = Board.win;
 
-			case 'w':
-			if(StoneY > 10){
-				StoneY = StoneY - 50;
-			}
-			User.SetLocation(StoneX, StoneY);
-			break;
-
-			case 's':
-
-			if(StoneY < 410){
-				StoneY = StoneY + 50;
-			}
-			User.SetLocation(StoneX, StoneY);
-			break;
-
-			case 'a':
-
-			if(StoneX > 10){
-				StoneX = StoneX - 50;
-			}
-			User.SetLocation(StoneX, StoneY);
-			break;
-
-			case 'd':
-
-			if(StoneX < 410){
-				StoneX = StoneX + 50;
-			}
-			User.SetLocation(StoneX, StoneY);
-			break;
-
-			case 'x': 
-
-			setboard[k].SetLocation(User.GetX(),User.GetY());
-			for(i=0;i<81;i++){
-				if((setboard[k].GetX()==board[i].GetX())&&(setboard[k].GetY()==board[i].GetY())){
-					if(board[i].Getis() == false){
-						board[i].Setis(true);
-						board[i].BW = k%2;
-						k++;
-
-					}
-				}
-				
-			}
+			if(win == false)  keycode = s.next().charAt(0);
 			
 
-			break;
+			switch(keycode){
 
-		}
-		
-		frame.repaint();
+				case 'w':
+				if(StoneY > 10){
+					StoneY = StoneY - 40;
+				}
+				User.SetLocation(StoneX, StoneY);
+				break;
+
+				case 's':
+
+				if(StoneY < 730){
+					StoneY = StoneY + 40;
+				}
+				User.SetLocation(StoneX, StoneY);
+				break;
+
+				case 'a':
+
+				if(StoneX > 10){
+					StoneX = StoneX - 40;
+				}
+				User.SetLocation(StoneX, StoneY);
+				break;
+
+				case 'd':
+
+				if(StoneX < 730){
+					StoneX = StoneX + 40;
+				}
+				User.SetLocation(StoneX, StoneY);
+				break;
+
+				case 'x': 
+
+				setboard[k].SetLocation(User.GetX(),User.GetY());
+				for(i=0;i<361;i++){
+					if((setboard[k].GetX()==board[i].GetX())&&(setboard[k].GetY()==board[i].GetY()))
+					{
+
+						if(board[i].Getis() == false)
+						{
+
+							board[i].Setis(true);
+							board[i].BW = k%2;
+							k++;
+
+						}
+					}
+					
+				}
+				break;
+
+			}
+			
+			frame.repaint();
 		
 	}while(keycode != 'q');
 	
