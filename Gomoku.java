@@ -22,7 +22,6 @@ import java.util.Scanner;
 
 public class Gomoku{
 
-
 	private static final int B = 0;
 	private static final int W = 1;
 	private static final int N = -1;

@@ -21,7 +21,7 @@ class ck {
 
 	}
 		
-	public void checkrow(){
+	public int checkrow(){
 	
 		for(int n=0;n<19;n++)
 		for(int i=0; i<15;i++)
@@ -31,10 +31,13 @@ class ck {
 		(Gomoku.board[((n*19)+i)+2].BW==Gomoku.board[((n*19)+i)+3].BW)&&
 		(Gomoku.board[((n*19)+i)+3].BW==Gomoku.board[((n*19)+i)+4].BW)&&
 		(Gomoku.board[((n*19)+i)+4].BW==Gomoku.board[((n*19)+i)+5].BW)) 
+		{
 			row = true;
-
+			return Gomoku.board[(n*19)+i].BW ;
+		}
+		return N ;
 	}
-	public void checkcol(){
+	public int checkcol(){
 	
 		for(int n=0;n<19;n++)
 		for(int i=0; i<=266;i+=19) 
@@ -43,25 +46,15 @@ class ck {
 		(Gomoku.board[n+i+19].BW==Gomoku.board[n+i+38].BW)&&
 		(Gomoku.board[n+i+38].BW==Gomoku.board[n+i+57].BW)&&
 		(Gomoku.board[n+i+57].BW==Gomoku.board[n+i+76].BW)&&
-		(Gomoku.board[n+i+76].BW==Gomoku.board[n+i+95].BW)) 
+		(Gomoku.board[n+i+76].BW==Gomoku.board[n+i+95].BW))
+		{
 			col = true;
-		
+			return Gomoku.board[n+i].BW ;
+		}
+		return N ;
 	}
 	
-	public void checkSla(){
-		for(int i=0;i<=247;i+=19) 
-		for(int n=i;n<(i+15);n++)
-		if(Gomoku.board[n].BW!=N)
-		if((Gomoku.board[n].BW==Gomoku.board[n+20].BW)&&
-		(Gomoku.board[n+20].BW==Gomoku.board[n+40].BW)&&
-		(Gomoku.board[n+40].BW==Gomoku.board[n+60].BW)&&
-		(Gomoku.board[n+60].BW==Gomoku.board[n+80].BW)&&
-		(Gomoku.board[n+80].BW==Gomoku.board[n+100].BW))
-			Sla = true;
-		
-	}
-	
-	public void checkBackSla(){
+	public int checkSla(){
 		for(int j = 0; j <=247; j += 19)
 		for(int n = 5 + j; n < 19 + j ; n++)
 		if(Gomoku.board[n].BW!=N)
@@ -70,9 +63,29 @@ class ck {
 		(Gomoku.board[n+36].BW==Gomoku.board[n+54].BW)&&
 		(Gomoku.board[n+54].BW==Gomoku.board[n+72].BW)&&
 		(Gomoku.board[n+72].BW==Gomoku.board[n+90].BW))
+		{
 			BSla = true;
-		
+			return Gomoku.board[n].BW ;
+		}
+		return N ;
 	}
+	
+	public int checkBackSla(){
+		for(int i=0;i<=247;i+=19) 
+		for(int n=i;n<(i+15);n++)
+		if(Gomoku.board[n].BW!=N)
+		if((Gomoku.board[n].BW==Gomoku.board[n+20].BW)&&
+		(Gomoku.board[n+20].BW==Gomoku.board[n+40].BW)&&
+		(Gomoku.board[n+40].BW==Gomoku.board[n+60].BW)&&
+		(Gomoku.board[n+60].BW==Gomoku.board[n+80].BW)&&
+		(Gomoku.board[n+80].BW==Gomoku.board[n+100].BW))
+		{
+			Sla = true;
+			return Gomoku.board[n].BW ;
+		}
+		return N ;
+	}
+
 	public void check(){
 
 		if(row==true)
@@ -84,4 +97,6 @@ class ck {
 		if(BSla==true)
 		checker = true;
 	}
+
+
 }

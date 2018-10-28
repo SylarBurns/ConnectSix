@@ -33,7 +33,7 @@ class Board extends JPanel {
 
 		int StoneX =Gomoku.StoneX; 
 		int StoneY =Gomoku.StoneY; 
-
+		int winner = N ;
 		int k;
 		
 
@@ -52,6 +52,7 @@ class Board extends JPanel {
 		g.drawString("Left : a", 760, 55) ;
 		g.drawString("Right : d\n", 760, 70) ;
 		g.drawString("Stone Down : space\n", 760, 85) ;
+		
 
 			for(int i=25; i<750; i=i+40){
 				
@@ -74,11 +75,16 @@ class Board extends JPanel {
 				}
 			}
 
+		int cr = c1.checkrow();
+		int cc = c1.checkcol();
+		int cs = c1.checkSla();
+		int cbs = c1.checkBackSla();
 
-		c1.checkrow();
-		c1.checkcol();
-		c1.checkSla();
-		c1.checkBackSla();
+		if(cr != N) winner = cr;
+		if(cc != N) winner = cc;
+		if(cs != N) winner = cs;
+		if(cbs != N) winner = cbs;
+
 		c1.check();
 
 		if(c1.checker == true)	win = true;
@@ -88,8 +94,8 @@ class Board extends JPanel {
 		{
 			g.setColor(new Color(0,0,0));
 
-			if(k%2==1)	g.drawString("Black win",760, 100);
-			else		g.drawString("White win", 760, 100);
+			if(winner == B)		    	g.drawString("Black win", 760, 100);
+			else if(winner == W)		g.drawString("White win", 760, 100);
 			
 		}
 	
