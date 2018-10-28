@@ -9,18 +9,18 @@ public class Gomoku{
 	private static final int N = -1; // no stone    : -1
  
 	public static Location [] board    = new Location[361]; //바둑판에 있는 돌
-	public static Location [] setboard = new Location[361]; //유저가 놓은 돌
-
-	public static boolean win = false; //게임 끝났는지 안끝났는지 확인
+	public static Location [] setboard = new Location[361]; //게임할 때 놓은 돌
 
 	public static int StoneX = 370; //cursur 처음 위치
 	public static int StoneY = 370;
+
+	public static boolean win = false ; //승패여부 저장
 
 	public static int k = 1;   		// 유저가 놓은 돌 갯수 : 1인 이유는 검은색 돌 1개는 무조건 놓여있기 때문
 
 	public static int turnW = 0;	//White turn
 	public static int turnB = 0;	//Black turn
-	
+
 	public static int userColor = N;//store user's color 
 
 
@@ -57,7 +57,6 @@ public class Gomoku{
 		int numx = 0 ;
 		int numy = 0 ;
 		int i,j ;
-		win = Board.win ;
 
 		for(i=0; i<19; i++) //모든 Location에 X,Y값 부여
 			for(j=0; j<19; j++){
@@ -84,13 +83,19 @@ public class Gomoku{
 		board[180].BW = B ; 
 		turnW = 2;  						// white has two turn in first
 
+			while(win != true){
 
-			do{
+				// if(){
 
+
+
+				// }
+				// else if(){
+
+				// }
 				Scanner s = new Scanner(System.in);
-				win = Board.win;
 
-				if(win == false)  keycode = s.next().charAt(0);
+				keycode = s.next().charAt(0);
 
 				switch(keycode){
 
@@ -124,14 +129,15 @@ public class Gomoku{
 					case 'x': 
 
 					setboard[k].SetLocation(User.GetX(),User.GetY());
+
 					for(i=1;i<361;i++)
 						if((setboard[k].GetX()==board[i].GetX())&&
 						   (setboard[k].GetY()==board[i].GetY()))
 
 							if(board[i].Getis() == false)
 							{
-
 								board[i].Setis(true);
+
 								if(turnW > 0)
 								{
 									board[i].BW = W;
@@ -144,15 +150,19 @@ public class Gomoku{
 									turnB-- ;
 									if(turnB == 0) turnW = 2;
 								}
-								k++;
 
+								k++;
 							}
 					
 					break ;
 				}
 				
 				frame.repaint();
-			
-			}while(keycode != 'q');
+				win = Board.win;
+
+			}
+
+
+			return ;
 	}
 }

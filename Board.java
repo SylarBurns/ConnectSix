@@ -51,9 +51,9 @@ class Board extends JPanel {
 		int cs = c1.checkSla();
 		int cbs = c1.checkBackSla();
 
-		if(cr != N) winner = cr;
-		if(cc != N) winner = cc;
-		if(cs != N) winner = cs;
+		if(cr != N)  winner = cr;
+		if(cc != N)  winner = cc;
+		if(cs != N)  winner = cs;
 		if(cbs != N) winner = cbs;
 
 		c1.check();
