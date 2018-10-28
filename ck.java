@@ -1,3 +1,7 @@
+
+
+
+
 class ck {
 
 	private static final int B = 0;
@@ -18,7 +22,6 @@ class ck {
 		Sla = false;
 		BSla = false;
 		checker = false;
-
 	}
 		
 	public int checkrow(){
@@ -37,6 +40,7 @@ class ck {
 		}
 		return N ;
 	}
+
 	public int checkcol(){
 	
 		for(int n=0;n<19;n++)
@@ -97,6 +101,4 @@ class ck {
 		if(BSla==true)
 		checker = true;
 	}
-
-
 }
