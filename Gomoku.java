@@ -27,18 +27,23 @@ public class Gomoku{
 
 	public static void main(String[] args){
 
-		System.out.println("\nSelect Your color(B or W) : ");
-		Scanner t = new Scanner(System.in);
+		while(true){		//Select User's color not AI color
+			System.out.println("\nSelect Your color(B or W) : ");
+			Scanner t = new Scanner(System.in);
 
-		if(t.next().charAt(0) == 'B')      
-		{
-			userColor = B ;
-			System.out.println("Black") ;
-		}
-		else if(t.next().charAt(0) == 'W') 
-		{
-			userColor = W ;
-			System.out.println("White") ;
+			char stoneColor = t.next().charAt(0) ;
+			if(stoneColor == 'B')      
+			{
+				userColor = B ;
+				System.out.println("Black") ;
+				break;
+			}
+			else if(stoneColor == 'W')
+			{
+				userColor = W ;
+				System.out.println("White") ;
+				break;
+			}
 		}
 
 
@@ -78,10 +83,14 @@ public class Gomoku{
 		int keycode = 0 ;
 		ck c1 = new ck();
 
-		setboard[0].SetLocation(370, 370) ; // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다. 
-		board[180].Setis(true) ; 
+		scoreRow sr = new scoreRow();
+
+		board[180].Setis(true) ; 		 // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다. 
 		board[180].BW = B ; 
+		setboard[0] = board[180] ;
+		sr.sum(setboard[0]) ;
 		turnW = 2;  						// white has two turn in first
+
 
 			while(win != true){
 
@@ -130,23 +139,26 @@ public class Gomoku{
 
 					setboard[k].SetLocation(User.GetX(),User.GetY());
 
-					for(i=1;i<361;i++)
+					for(i=0;i<361;i++)
 						if((setboard[k].GetX()==board[i].GetX())&&
 						   (setboard[k].GetY()==board[i].GetY()))
 
 							if(board[i].Getis() == false)
 							{
 								board[i].Setis(true);
+								
 
 								if(turnW > 0)
 								{
 									board[i].BW = W;
+									sr.sum(board[i]);
 									turnW-- ;
 									if(turnW == 0) turnB = 2;
 								}
 								else if(turnB > 0) 
 								{
 									board[i].BW = B;
+									sr.sum(board[i]);
 									turnB-- ;
 									if(turnB == 0) turnW = 2;
 								}
