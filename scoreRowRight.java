@@ -1,4 +1,4 @@
-class scoreRow{
+class scoreRowRight{
 
 	private static final int B = 0;  // color black : 0
 	private static final int W = 1;  // color white : 1
@@ -8,7 +8,7 @@ class scoreRow{
     int [] whiteScore = new int[361];
 
 
-    scoreRow(){
+    scoreRowRight(){
 
         for(int i = 0; i<361; i++) blackScore[i] = 0;
         for(int i = 0; i<361; i++) whiteScore[i] = 0;
@@ -31,23 +31,6 @@ class scoreRow{
 
 
             whiteScore[num] = 0 ;
-
-            for(int point = 5, distance = 1; point > 0; point--, distance++)
-                if(j-distance > 0){         //change score at left
-
-                    if(whiteScore[num-distance] >= 0){
-
-                        whiteScore[num-distance] = 0;
-                        if(blackScore[num-distance]==0) blackScore[num-distance] += point;
-                        else blackScore[num-distance] *= point;
-
-                    }
-                    else if(whiteScore[num-distance] < 0){
-
-                        break;
-                    }                 
-
-                }
 
             for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if(j+distance < 19){        //change score at right
@@ -75,23 +58,6 @@ class scoreRow{
             blackScore[num] = 0;
     
             for(int point = 5, distance = 1; point > 0; point--, distance++)
-                if(j-distance > 0){         //change score at left
-
-                    if(blackScore[num-distance] >= 0){
-
-                        blackScore[num-distance] = 0;
-                        if(whiteScore[num-distance]==0) whiteScore[num-distance] += point;
-                        else whiteScore[num-distance] *= point;
-
-                    }
-                    else if(blackScore[num-distance] < 0){
-
-                        break;
-                    }                 
-
-                }
-
-            for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if(j+distance < 19){        //change score at right
 
                     if(blackScore[num+distance] >= 0){
@@ -110,23 +76,5 @@ class scoreRow{
                 }
 
         }
-
-        System.out.print("\nBlack Board");
-        for(int m = 0; m<361; m++)
-        {
-            if(m%19 == 0) System.out.println();
-            System.out.printf("%5d ", blackScore[m]);
-        }
-
-        System.out.print("\n\nwhite Board");
-        for(int m = 0; m<361; m++)
-        {
-            if(m%19 == 0) System.out.println();
-            System.out.printf("%5d ", whiteScore[m]);
-        }
-       
-        System.out.println();
-        
-
     }
 }
