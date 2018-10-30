@@ -85,31 +85,18 @@ public class Gomoku{
 		int keycode = 0 ;
 		ck c1 = new ck();
 
-		// scoreRow sr = new scoreRow();  testing
-		// scoreCol sc = new scoreCol();
 		totalScore total_Score = new totalScore();
 
 		board[180].Setis(true) ; 		 // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다. 
 		board[180].BW = B ; 
 		setboard[0] = board[180] ;
-		// sr.sum(setboard[0]) ; 	testing
-		// sc.sum(setboard[0]) ;
 		total_Score.setTotal(setboard[0]);
+		total_Score.display();
 
 		turnW = 2;  						// white has two turn in first
 
 
 			while(win != true){
-
-				// if(){
-
-
-
-				// }
-				// else if(){
-
-				// }
-
 				/* 커서 움직이기 하지만 개선이 되어야 한다!!! */
 				Scanner s = new Scanner(System.in);
 
@@ -160,8 +147,6 @@ public class Gomoku{
 								if(turnW > 0)
 								{
 									board[i].BW = W;
-									// sr.sum(board[i]);	testing
-									// sc.sum(board[i]);
 									total_Score.setTotal(board[i]);
 									turnW-- ;
 									if(turnW == 0) turnB = 2;
@@ -169,8 +154,6 @@ public class Gomoku{
 								else if(turnB > 0) 
 								{
 									board[i].BW = B;
-									// sr.sum(board[i]);	testing
-									// sc.sum(board[i]);
 									total_Score.setTotal(board[i]);
 									turnB-- ;
 									if(turnB == 0) turnW = 2;

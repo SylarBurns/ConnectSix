@@ -59,14 +59,41 @@ class totalScore{
 
     void display(){
 
-        System.out.print("\nScore Board");
+        int first_where = 0;
+        int first_score = 0;
+        System.out.print("\nScore Board\n");
+
+        for(int i = 0; i < 20; i++)     System.out.printf("%5d ", i);
+
         for(int i = 0; i<361; i++)
         {
-            if(i%19 == 0) System.out.println();
+            
+            if(i%19 == 0) System.out.printf("\n%5d", i/19+1);
+            if(total[i] > first_score) {
+
+                first_score = total[i];
+                first_where = i;
+            }
+            
             System.out.printf("%5d ", total[i]);
         }
 
         System.out.println();
+        System.out.print(first_where%19+1);
+        System.out.print(" , ");
+        System.out.println(first_where/19+1);
+
 
     }
+
+    // int select(){
+
+    //     int first = 0;
+
+    //     for(int i = 0; i < 360 ; i ++)
+    //         if(total[i] > first)    first = i;
+
+
+    //     return first;
+    // }
 }

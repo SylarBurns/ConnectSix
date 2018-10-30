@@ -1,7 +1,3 @@
-
-
-
-
 class ck {
 
 	private static final int B = 0;

@@ -19,19 +19,60 @@ class Board extends JPanel {
 		ck c1 = new ck();
 
 		
-		g.drawString("Up : w", 760, 25) ;
-		g.drawString("Down : s", 760, 40) ;
-		g.drawString("Left : a", 760, 55) ;
-		g.drawString("Right : d\n", 760, 70) ;
-		g.drawString("Stone Down : space\n", 760, 85) ;
+		g.drawString("Up : w", 800, 25) ;
+		g.drawString("Down : s", 800, 40) ;
+		g.drawString("Left : a", 800, 55) ;
+		g.drawString("Right : d\n", 800, 70) ;
+		g.drawString("Stone Down : space\n", 800, 85) ;
 		
 
 		for(int i=25; i<750; i=i+40){
 			
 		g.drawLine(25, i, 745, i);
 		g.drawLine(i, 25, i, 745);
-
+		
 		}
+
+		g.drawString("1", 760, 25);
+		g.drawString("2", 760, 65);
+		g.drawString("3", 760, 105);
+		g.drawString("4", 760, 145);
+		g.drawString("5", 760, 185);
+		g.drawString("6", 760, 225);
+		g.drawString("7", 760, 265);
+		g.drawString("8", 760, 305);
+		g.drawString("9", 760, 345);
+		g.drawString("10", 760, 385);
+		g.drawString("11", 760, 425);
+		g.drawString("12", 760, 465);
+		g.drawString("13", 760, 505);
+		g.drawString("14", 760, 545);
+		g.drawString("15", 760, 585);
+		g.drawString("16", 760, 625);
+		g.drawString("17", 760, 665);
+		g.drawString("18", 760, 705);
+		g.drawString("19", 760, 745);
+		g.drawString("1", 25, 760);
+		g.drawString("2", 65, 760);
+		g.drawString("3", 105, 760);
+		g.drawString("4", 145, 760);
+		g.drawString("5", 185, 760);
+		g.drawString("6", 225, 760);
+		g.drawString("7", 265, 760);
+		g.drawString("8", 305, 760);
+		g.drawString("9", 345, 760);
+		g.drawString("10", 385, 760);
+		g.drawString("11", 425, 760);
+		g.drawString("12", 465, 760);
+		g.drawString("13", 505, 760);
+		g.drawString("14", 545, 760);
+		g.drawString("15", 585, 760);
+		g.drawString("16", 625, 760);
+		g.drawString("17", 665, 760);
+		g.drawString("18", 705, 760);
+		g.drawString("19", 745, 760);
+
+
 
 
 		for(int i=0; i<361; i++)
@@ -65,15 +106,15 @@ class Board extends JPanel {
 		{
 			g.setColor(new Color(0,0,0));
 
-			if(winner == B)		    	g.drawString("Black win", 760, 100);
-			else if(winner == W)		g.drawString("White win", 760, 100);
+			if(winner == B)		    	g.drawString("Black win", 800, 100);
+			else if(winner == W)		g.drawString("White win", 800, 100);
 			
 		}
 	
 		g.setColor(new Color(255,0,0));
 		g.fillRect(Gomoku.StoneX+2,Gomoku.StoneY+2,26,26);
 			
-		if(Gomoku.k==361)		g.drawString("Draw", 760, 100);
+		if(Gomoku.k==361)		g.drawString("Draw", 800, 100);
 	}
 
 }
