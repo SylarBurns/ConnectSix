@@ -43,6 +43,8 @@ public class Gomoku{
 				userColor = W ;
 				System.out.println("White") ;
 				break;
+			}else{
+				System.out.println("Wrong Input. Enter Again!");
 			}
 		}
 
@@ -78,7 +80,7 @@ public class Gomoku{
 				setboard[num].Setis(false) ;
 			}
 		
-		Location User = new Location()  ;
+		Location User = new Location()  ; // Cursor를 위한 Location객체 만들어주기
 		User.SetLocation(StoneX, StoneY);
 		int keycode = 0 ;
 		ck c1 = new ck();
@@ -107,6 +109,8 @@ public class Gomoku{
 				// else if(){
 
 				// }
+
+				/* 커서 움직이기 하지만 개선이 되어야 한다!!! */
 				Scanner s = new Scanner(System.in);
 
 				keycode = s.next().charAt(0);
@@ -142,7 +146,7 @@ public class Gomoku{
 
 					case 'x': 
 
-					setboard[k].SetLocation(User.GetX(),User.GetY());
+					setboard[k].SetLocation(User.GetX(),User.GetY()); // 놓은 돌의 위치를 setboard 배열에 계속 저장해준다.
 
 					for(i=0;i<361;i++)
 						if((setboard[k].GetX()==board[i].GetX())&&
