@@ -26,7 +26,7 @@ class scoreRowRight{
         if(choice.BW == B)
         {
 
-            if(blackScore[num]==0) blackScore[num] = -1 ;
+            if(blackScore[num]==0) blackScore[num] =  -1;
             else                   blackScore[num] *= -1;
 
 
@@ -38,6 +38,7 @@ class scoreRowRight{
                     if(whiteScore[num+distance] >= 0){
 
                         whiteScore[num+distance] = 0;
+                        
                         if(blackScore[num+distance]==0) blackScore[num+distance] += point;
                         else blackScore[num+distance] *= point;
 

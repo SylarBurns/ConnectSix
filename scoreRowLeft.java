@@ -26,7 +26,7 @@ class scoreRowLeft{
         if(choice.BW == B)
         {
 
-            if(blackScore[num]==0) blackScore[num] = -1 ;
+            if(blackScore[num]==0) blackScore[num] =  -1;
             else                   blackScore[num] *= -1;
 
 
