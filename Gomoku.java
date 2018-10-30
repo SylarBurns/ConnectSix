@@ -43,6 +43,8 @@ public class Gomoku{
 				userColor = W ;
 				System.out.println("White") ;
 				break;
+			}else{
+				System.out.println("Wrong Input. Enter Again!");
 			}
 		}
 
@@ -78,17 +80,18 @@ public class Gomoku{
 				setboard[num].Setis(false) ;
 			}
 		
-		Location User = new Location()  ;
+		Location User = new Location()  ; // Cursor를 위한 Location객체 만들어주기
 		User.SetLocation(StoneX, StoneY);
 		int keycode = 0 ;
 		ck c1 = new ck();
 
+		/* 돌이 놓이면 점수를 계산해주는 객체 생성 */
 		scoreRow sr = new scoreRow();
 
 		board[180].Setis(true) ; 		 // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다. 
 		board[180].BW = B ; 
 		setboard[0] = board[180] ;
-		sr.sum(setboard[0]) ;
+		sr.sum(setboard[0]) ;				// 나중에 sum 메소드에 setboard 배열, 즉 놓여진 돌들의 정보를 담은 배열을 argument로 전달해 점수 계산
 		turnW = 2;  						// white has two turn in first
 
 
@@ -102,6 +105,8 @@ public class Gomoku{
 				// else if(){
 
 				// }
+
+				/* 커서 움직이기 하지만 개선이 되어야 한다!!! */
 				Scanner s = new Scanner(System.in);
 
 				keycode = s.next().charAt(0);
@@ -137,7 +142,7 @@ public class Gomoku{
 
 					case 'x': 
 
-					setboard[k].SetLocation(User.GetX(),User.GetY());
+					setboard[k].SetLocation(User.GetX(),User.GetY()); // 놓은 돌의 위치를 setboard 배열에 계속 저장해준다.
 
 					for(i=0;i<361;i++)
 						if((setboard[k].GetX()==board[i].GetX())&&
