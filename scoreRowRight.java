@@ -47,7 +47,7 @@ class scoreRowRight{
                         whiteScore[num+distance] = 0;
                         
                         if(blackScore[num+distance]==0) blackScore[num+distance] += point;
-                        else blackScore[num+distance] *= point;
+                        else blackScore[num+distance] += (point * 2);
 
                     }
                     else if(whiteScore[num+distance] < 0){
@@ -73,7 +73,7 @@ class scoreRowRight{
                         blackScore[num+distance] = 0;
 
                         if(whiteScore[num+distance]==0) whiteScore[num+distance] += point;
-                        else whiteScore[num+distance] *= point;
+                        else whiteScore[num+distance] += (point * 2);
 
                     }
                     else if(blackScore[num+distance] < 0){

@@ -39,7 +39,7 @@ class scoreColDown{
                         whiteScore[num+(19*distance)] = 0;
                         
                         if(blackScore[num+(19*distance)]==0) blackScore[num+(19*distance)] += point;
-                        else blackScore[num+(19*distance)] *= point;
+                        else blackScore[num+(19*distance)] += (point * 2);
 
                     }
                     else if(whiteScore[num+(19*distance)] < 0)
@@ -65,7 +65,7 @@ class scoreColDown{
                         blackScore[num+(19*distance)] = 0;
 
                         if(whiteScore[num+(19*distance)]==0) whiteScore[num+(19*distance)] += point;
-                        else whiteScore[num+(19*distance)] *= point;
+                        else whiteScore[num+(19*distance)] += (point * 2);
 
                     }
                     else if(blackScore[num+(19*distance)] < 0)
