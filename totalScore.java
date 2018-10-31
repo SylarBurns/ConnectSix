@@ -33,7 +33,6 @@ class totalScore{
         score_Bsl_D.sum(choice);
 
         for(int i = 0; i < 361 ; i++)
-        {
             total[i] = score_Row_L.blackScore[i]
                      + score_Row_L.whiteScore[i]
                      + score_Row_R.blackScore[i]
@@ -50,11 +49,7 @@ class totalScore{
                      + score_Bsl_U.whiteScore[i]
                      + score_Bsl_D.blackScore[i]
                      + score_Bsl_D.whiteScore[i];
-         }
-
-
-
-
+         
     }
 
     void display(){
@@ -82,8 +77,6 @@ class totalScore{
         System.out.print(first_where%19+1);
         System.out.print(" , ");
         System.out.println(first_where/19+1);
-
-
     }
 
 }
