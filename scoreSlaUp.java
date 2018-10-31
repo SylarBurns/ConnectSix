@@ -40,7 +40,11 @@ class scoreSlaUp{
                         whiteScore[num-(18*distance)] = 0;
 
                         if(blackScore[num-(18*distance)]==0) blackScore[num-(18*distance)] += point;
+<<<<<<< HEAD
                         else if(blackScore[num-(18*distance)] >= 0) blackScore[num-(18*distance)] += (point * 2);
+=======
+                        else if(blackScore[num+(20*distance)] >= 0) blackScore[num-(18*distance)] += (point * 2);
+>>>>>>> 719a3c0dad3917df0c5fddbbf183054f35f0d69d
 
                     }
                     else if(whiteScore[num-(18*distance)] < 0){
@@ -67,7 +71,7 @@ class scoreSlaUp{
                         blackScore[num-(18*distance)] = 0;
 
                         if(whiteScore[num-(18*distance)]==0) whiteScore[num-(18*distance)] += point;
-                        else whiteScore[num-(18*distance)] += (point * 2);
+                        else if(whiteScore[num+(20*distance)] >= 0) whiteScore[num-(18*distance)] += (point * 2);
 
                     }
                     else if(blackScore[num-(18*distance)] < 0){
