@@ -67,7 +67,7 @@ class scoreBslUp{
                         blackScore[num-(20*distance)] = 0;
 
                         if(whiteScore[num-(20*distance)]==0) whiteScore[num-(20*distance)] += point;
-                        else if(whiteScore[num+(20*distance)] >= 0) whiteScore[num-(20*distance)] += (point * 2);
+                        else if(whiteScore[num-(20*distance)] >= 0) whiteScore[num-(20*distance)] += (point * 2);
 
                     }
                     else if(blackScore[num-(20*distance)] < 0){
