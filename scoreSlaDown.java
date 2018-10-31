@@ -4,24 +4,24 @@ class scoreSlaDown{
 	private static final int W = 1;  // color white : 1
 	private static final int N = -1; // no stone    : -1
 
-    int [] blackScore = new int[361];
-    int [] whiteScore = new int[361];
+    int [] blackScore = new int[361] ;
+    int [] whiteScore = new int[361] ;
 
 
     scoreSlaDown(){
 
-        for(int i = 0; i<361; i++) blackScore[i] = 0;
-        for(int i = 0; i<361; i++) whiteScore[i] = 0;
+        for(int i = 0; i<361; i++) blackScore[i] = 0 ;
+        for(int i = 0; i<361; i++) whiteScore[i] = 0 ;
     }
 
     void sum(Location choice){
 
-        int Lox = choice.GetX();
-        int Loy = choice.GetY();
+        int Lox = choice.GetX() ;
+        int Loy = choice.GetY() ;
 
-        int i = (Loy-10)/40;
-        int j = (Lox-10)/40;
-        int num = (i*19)+j ;
+        int i = (Loy-10)/40 ;
+        int j = (Lox-10)/40 ;
+        int num = (i*19)+j  ;
 
         if(choice.BW == B)
         {

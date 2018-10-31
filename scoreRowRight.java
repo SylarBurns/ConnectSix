@@ -26,9 +26,6 @@ class scoreRowRight{
 
         if(choice.BW == B)
         {
-
-            if(blackScore[num]==0) blackScore[num] =  -1;
-            {   
             /* 돌이 놓였을 때 row의 점수를 계산하는데, 돌 양 옆으로 1. 총 5개의 빈 공간이 있는지, 2. 그 5개의 공간에 적의 돌이 있는지 없는지 체크. */
             /* 만약에 두 조건이 모두 만족하지 못한다면 그 사이의 점수들은 0점 또는 매우 낮게 매겨져야한다. (row만 고려했을 때 -> col이나 대각선이 고려되면 달라져야함) */
             
@@ -36,8 +33,8 @@ class scoreRowRight{
             /* 1번 조건 체크 */
             
             
-            if(blackScore[num]==0) blackScore[num] = -1 ;
-            else                   blackScore[num] *= -1;
+            if(blackScore[num]==0) blackScore[num] =  -1 ;
+            else                   blackScore[num] *= -1 ;
 
 
             whiteScore[num] = 0 ;
@@ -60,7 +57,6 @@ class scoreRowRight{
 
                 }
 
-            }
         }
         else if(choice.BW == W)
         {

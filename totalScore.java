@@ -86,14 +86,4 @@ class totalScore{
 
     }
 
-    // int select(){
-
-    //     int first = 0;
-
-    //     for(int i = 0; i < 360 ; i ++)
-    //         if(total[i] > first)    first = i;
-
-
-    //     return first;
-    // }
 }
