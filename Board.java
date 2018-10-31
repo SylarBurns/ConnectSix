@@ -52,6 +52,7 @@ class Board extends JPanel {
 		g.drawString("17", 760, 665);
 		g.drawString("18", 760, 705);
 		g.drawString("19", 760, 745);
+
 		g.drawString("1", 25, 760);
 		g.drawString("2", 65, 760);
 		g.drawString("3", 105, 760);
@@ -79,7 +80,7 @@ class Board extends JPanel {
 			if(Gomoku.board[i].Getis()==true)
 			{
 
-				if(Gomoku.board[i].BW == B)		g.setColor(new Color(0,0,0));
+				if(Gomoku.board[i].BW == B) g.setColor(new Color(0,0,0));
 				else						g.setColor(new Color(255,255,255));
 				
 				g.fillOval(Gomoku.board[i].GetX()-5,Gomoku.board[i].GetY()-5,40,40);
@@ -112,7 +113,7 @@ class Board extends JPanel {
 		}
 	
 		g.setColor(new Color(255,0,0));
-		g.fillRect(Gomoku.StoneX+2,Gomoku.StoneY+2,26,26);
+		g.fillRect(Gomoku.User.GetX()+2, Gomoku.User.GetY()+2,26,26);
 			
 		if(Gomoku.k==361)		g.drawString("Draw", 800, 100);
 	}

@@ -4,24 +4,23 @@ import java.awt.*;
 
 public class Gomoku{
 
-	private static final int B = 0;  // color black : 0
-	private static final int W = 1;  // color white : 1
-	private static final int N = -1; // no stone    : -1
+	private static final int B = 0; 	 // color black : 0
+	private static final int W = 1; 	 // color white : 1
+	private static final int N = -1;	 // no stone    : -1
  
 	public static Location [] board    = new Location[361]; //바둑판에 있는 돌
 	public static Location [] setboard = new Location[361]; //게임할 때 놓은 돌
 
-	public static int StoneX = 370; //cursur 처음 위치
-	public static int StoneY = 370;
-
 	public static boolean win = false ; //승패여부 저장
 
-	public static int k = 1;   		// 유저가 놓은 돌 갯수 : 1인 이유는 검은색 돌 1개는 무조건 놓여있기 때문
+	public static int k = 1;   			// 유저가 놓은 돌 갯수 : 1인 이유는 검은색 돌 1개는 무조건 놓여있기 때문
 
-	public static int turnW = 0;	//White turn
-	public static int turnB = 0;	//Black turn
+	public static int turnW = 0;		//White turn
+	public static int turnB = 0;		//Black turn
+	public static Location User = new Location()  ; // Cursor를 위한 Location객체 만들어주기
 
-	public static int userColor = N;//store user's color 
+
+	public static int userColor = N;	//store user's color 
 
 
 
@@ -51,7 +50,7 @@ public class Gomoku{
 
 
 		JFrame frame = new JFrame("Gomoku") ;
-		Board GB = new Board();
+		Board GB = new Board() ;
 		frame.getContentPane().add(GB) ;
 		
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE) ;
@@ -80,8 +79,7 @@ public class Gomoku{
 				setboard[num].Setis(false) ;
 			}
 		
-		Location User = new Location()  ; // Cursor를 위한 Location객체 만들어주기
-		User.SetLocation(StoneX, StoneY);
+		User.SetLocation(370, 370);
 		int keycode = 0 ;
 		ck c1 = new ck();
 
@@ -105,30 +103,22 @@ public class Gomoku{
 				switch(keycode){
 
 					case 'w':
-					if(StoneY > 10) StoneY = StoneY - 40;
-					
-					User.SetLocation(StoneX, StoneY);
+					if(User.GetY() > 10) User.SetLocation(User.GetX(), User.GetY()-40);
 					break;
 
 					case 's':
 
-					if(StoneY < 730) StoneY = StoneY + 40;
-					
-					User.SetLocation(StoneX, StoneY);
+					if(User.GetY() < 730) User.SetLocation(User.GetX(), User.GetY()+40);
 					break;
 
 					case 'a':
 
-					if(StoneX > 10) StoneX = StoneX - 40;
-					
-					User.SetLocation(StoneX, StoneY);
+					if(User.GetX() > 10) User.SetLocation(User.GetX()-40, User.GetY());
 					break;
 
 					case 'd':
 
-					if(StoneX < 730) StoneX = StoneX + 40;
-					
-					User.SetLocation(StoneX, StoneY);
+					if(User.GetX() < 730) User.SetLocation(User.GetX()+40, User.GetY());
 					break;
 
 					case 'x': 
