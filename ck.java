@@ -23,7 +23,7 @@ class ck {
 	public int checkrow(){
 	
 		for(int n=0;n<19;n++)
-		for(int i=0; i<15;i++)
+		for(int i=0;i<15;i++)
 		if(Gomoku.board[(n*19)+i].BW!=N)
 		if((Gomoku.board[((n*19)+i)+0].BW==Gomoku.board[((n*19)+i)+1].BW)&&
 		(Gomoku.board[((n*19)+i)+1].BW==Gomoku.board[((n*19)+i)+2].BW)&&
