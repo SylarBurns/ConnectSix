@@ -29,7 +29,7 @@ class ck {
 			(Gomoku.board[((n*19)+i)+1].BW==Gomoku.board[((n*19)+i)+2].BW)&&
 			(Gomoku.board[((n*19)+i)+2].BW==Gomoku.board[((n*19)+i)+3].BW)&&
 			(Gomoku.board[((n*19)+i)+3].BW==Gomoku.board[((n*19)+i)+4].BW)&&
-			(Gomoku.board[((n*19)+i)+4].BW==Gomoku.board[((n*19)+i)+5].BW)) 
+			(Gomoku.board[((n*19)+i)+4].BW==Gomoku.board[((n*19)+i)+5].BW))
 			{
 				row = true;
 				return Gomoku.board[(n*19)+i].BW ;
