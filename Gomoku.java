@@ -9,16 +9,16 @@ public class Gomoku{
    private static final int W = 1;     // color white : 1
    private static final int N = -1;    // no stone    : -1
  
-   public static Location [] board    = new Location[361]; //諛붾몣�뙋�뿉 �엳�뒗 �룎
-   public static Location [] setboard = new Location[361]; //寃뚯엫�븷 �븣 �넃�� �룎
+   public static Location [] board    = new Location[361]; //바둑판에 있는 돌
+   public static Location [] setboard = new Location[361]; //게임할 때 놓은 돌
 
-   public static boolean win = false ; //�듅�뙣�뿬遺� ���옣
+   public static boolean win = false ; //승패여부 저장
 
-   public static int k = 1;            // �쑀��媛� �넃�� �룎 媛��닔 : 1�씤 �씠�쑀�뒗 寃����깋 �룎 1媛쒕뒗 臾댁“嫄� �넃�뿬�엳湲� �븣臾�
+   public static int k = 1;            // 유저가 놓은 돌 갯수 : 1인 이유는 검은색 돌 1개는 무조건 놓여있기 때문
 
    public static int turnW = 0;      //White turn
    public static int turnB = 0;      //Black turn
-   public static Location User = new Location()  ; // Cursor瑜� �쐞�븳 Location媛앹껜 留뚮뱾�뼱二쇨린
+   public static Location User = new Location()  ; //  Cursor를 위한 Location객체 만들어주기
 
    public static int userColor = N;   //store user's color 
    static totalScore total_Score = new totalScore();
@@ -62,7 +62,7 @@ public class Gomoku{
       int numy = 0 ;
       int i,j ;
 
-      for(i=0; i<19; i++) //紐⑤뱺 Location�뿉 X,Y媛� 遺��뿬
+      for(i=0; i<19; i++) //모든 Location에 X,Y값 부여
          for(j=0; j<19; j++){
 
             num = (i*19) + j  ;
@@ -83,7 +83,7 @@ public class Gomoku{
 
     
 
-      board[180].Setis(true) ;        // 寃����깋 �룎�� 泥섏쓬�뿉 媛��슫�뜲�뿉 臾댁“嫄� �넃�뿬�엳�뼱�빞 �븳�떎.  
+      board[180].Setis(true) ;        // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다.    
       board[180].BW = B ; 
       setboard[0] = board[180] ;
 
@@ -122,7 +122,7 @@ public class Gomoku{
                      break;
 
                      case 32: 
-                     setboard[k].SetLocation(User.GetX(),User.GetY()); // �넃�� �룎�쓽 �쐞移섎�� setboard 諛곗뿴�뿉 怨꾩냽 ���옣�빐以��떎.
+                     setboard[k].SetLocation(User.GetX(),User.GetY()); // 놓은 돌의 위치를 setboard 배열에 계속 저장해준다.
                      for(int i=0;i<361;i++)
                         if((setboard[k].GetX()==board[i].GetX())&&
                            (setboard[k].GetY()==board[i].GetY()))
