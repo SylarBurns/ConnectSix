@@ -84,7 +84,7 @@ public class Gomoku{
 
       totalScore total_Score = new totalScore();
 
-      board[180].Setis(true) ;        // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다. 
+      board[180].Setis(true) ;        // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다.  
       board[180].BW = B ; 
       setboard[0] = board[180] ;
       total_Score.setTotal(setboard[0]);
@@ -94,7 +94,6 @@ public class Gomoku{
       System.out.println("Check");
          class Key implements KeyListener {
             public void keyPressed(java.awt.event.KeyEvent e) {
-                  /* 커서 움직이기 하지만 개선이 되어야 한다!!! */
                   int code=e.getKeyCode();
                   switch(code){
 
@@ -154,8 +153,14 @@ public class Gomoku{
 
                      total_Score.display();
                      frame.repaint();
+<<<<<<< HEAD
 					 if(Board.win) System.exit(0);
 					 
+=======
+                     if(Board.win) {
+                    	 System.exit(0);
+                     }
+>>>>>>> ab2d12a035f960f7d88869aeb4f34752e5574de9
                      break ;
                      default:
                      break;
