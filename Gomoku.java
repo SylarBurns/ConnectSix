@@ -18,11 +18,10 @@ public class Gomoku{
 
    public static int turnW = 0;      //White turn
    public static int turnB = 0;      //Black turn
-   public static Location User = new Location()  ; // Cursor를 위한 Location객체 만들어주기
-
+   public static Location User = new Location()  ; //  Cursor를 위한 Location객체 만들어주기
 
    public static int userColor = N;   //store user's color 
-
+   static totalScore total_Score = new totalScore();
 
 
    public static void main(String[] args){
@@ -51,10 +50,10 @@ public class Gomoku{
 
 
       JFrame frame = new JFrame("Gomoku") ;
-      Board GB = new Board() ;
-      frame.getContentPane().add(GB) ;
-      
+      Board GB = new Board();
+      frame.add(GB);
       frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE) ;
+      
       frame.setSize(1100, 1100) ;
       frame.setFocusable(true);
       
@@ -82,11 +81,12 @@ public class Gomoku{
       int keycode = 0 ;
       ck c1 = new ck();
 
-      totalScore total_Score = new totalScore();
+    
 
-      board[180].Setis(true) ;        // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다.  
+      board[180].Setis(true) ;        // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다.    
       board[180].BW = B ; 
       setboard[0] = board[180] ;
+
       total_Score.setTotal(setboard[0]);
       total_Score.display();
 
@@ -162,8 +162,9 @@ public class Gomoku{
                }
             }
             public void keyReleased(java.awt.event.KeyEvent e) {
+            	
             }
-
+            
 
             public void keyTyped(java.awt.event.KeyEvent e) {   
             }
