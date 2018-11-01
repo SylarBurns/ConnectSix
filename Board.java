@@ -24,7 +24,7 @@ class Board extends JPanel {
 		g.drawString("Left : a", 800, 55) ;
 		g.drawString("Right : d\n", 800, 70) ;
 		g.drawString("Stone Down : space\n", 800, 85) ;
-		
+		g.drawString((Gomoku.total_Score.get_first_where()%19+1)+", "+((Gomoku.total_Score.get_first_where())/19+1), 800, 100) ;
 
 		for(int i=25; i<750; i=i+40){
 			
@@ -114,7 +114,8 @@ class Board extends JPanel {
 	
 		g.setColor(new Color(255,0,0));
 		g.fillRect(Gomoku.User.GetX()+2, Gomoku.User.GetY()+2,26,26);
-			
+		g.setColor(new Color(0,0,255));
+		g.fillRect((Gomoku.total_Score.get_first_where()%19+1)*40-25, (Gomoku.total_Score.get_first_where()/19+1)*40-25, 20, 20);
 		if(Gomoku.k==361)		g.drawString("Draw", 800, 100);
 	}
 
