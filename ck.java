@@ -25,22 +25,22 @@ class ck {
 		for(int n=0;n<19;n++)
 		for(int i=0;i<15;i++)
 		if(Gomoku.board[(n*19)+i].BW!=N)
-		if((Gomoku.board[((n*19)+i)+0].BW==Gomoku.board[((n*19)+i)+1].BW)&&
-		(Gomoku.board[((n*19)+i)+1].BW==Gomoku.board[((n*19)+i)+2].BW)&&
-		(Gomoku.board[((n*19)+i)+2].BW==Gomoku.board[((n*19)+i)+3].BW)&&
-		(Gomoku.board[((n*19)+i)+3].BW==Gomoku.board[((n*19)+i)+4].BW)&&
-		(Gomoku.board[((n*19)+i)+4].BW==Gomoku.board[((n*19)+i)+5].BW)) 
-		{
-			row = true;
-			return Gomoku.board[(n*19)+i].BW ;
-		}
-		return N ;
+			if((Gomoku.board[((n*19)+i)+0].BW==Gomoku.board[((n*19)+i)+1].BW)&&
+			(Gomoku.board[((n*19)+i)+1].BW==Gomoku.board[((n*19)+i)+2].BW)&&
+			(Gomoku.board[((n*19)+i)+2].BW==Gomoku.board[((n*19)+i)+3].BW)&&
+			(Gomoku.board[((n*19)+i)+3].BW==Gomoku.board[((n*19)+i)+4].BW)&&
+			(Gomoku.board[((n*19)+i)+4].BW==Gomoku.board[((n*19)+i)+5].BW)) 
+			{
+				row = true;
+				return Gomoku.board[(n*19)+i].BW ;
+			}
+			return N ;
 	}
 
 	public int checkcol(){
 	
 		for(int n=0;n<19;n++)
-		for(int i=0; i<=266;i+=19) 
+		for(int i=0;i<=247;i+=19) 
 		if(Gomoku.board[n+i].BW!=N)
 		if((Gomoku.board[n+i].BW==Gomoku.board[n+i+19].BW)&&
 		(Gomoku.board[n+i+19].BW==Gomoku.board[n+i+38].BW)&&
@@ -55,8 +55,8 @@ class ck {
 	}
 	
 	public int checkSla(){
-		for(int j = 0; j <=247; j += 19)
-		for(int n = 5 + j; n < 19 + j ; n++)
+		for(int j=0;j<=247;j+= 19)
+		for(int n=5+j;n<19+j;n++)
 		if(Gomoku.board[n].BW!=N)
 		if((Gomoku.board[n].BW==Gomoku.board[n+18].BW)&&
 		(Gomoku.board[n+18].BW==Gomoku.board[n+36].BW)&&

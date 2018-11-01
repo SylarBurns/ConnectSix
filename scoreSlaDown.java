@@ -39,8 +39,8 @@ class scoreSlaDown{
 
                         whiteScore[num+(18*distance)] = 0;
 
-                        if(blackScore[num+(18*distance)]==0) blackScore[num+(18*distance)] += point;
-                        else if(blackScore[num+(18*distance)] >= 0) blackScore[num+(18*distance)] += (point * 2);
+                        if(blackScore[num+(18*distance)]==0)       blackScore[num+(18*distance)] += point;
+                        else if(blackScore[num+(18*distance)] > 0) blackScore[num+(18*distance)] += (point * 2);
 
                     }
                     else if(whiteScore[num+(18*distance)] < 0){
@@ -65,8 +65,8 @@ class scoreSlaDown{
 
                         blackScore[num+(18*distance)] = 0;
 
-                        if(whiteScore[num+(18*distance)]==0) whiteScore[num+(18*distance)] += point;
-                        else if(whiteScore[num+(18*distance)] >= 0) whiteScore[num+(18*distance)] += (point * 2);
+                        if(whiteScore[num+(18*distance)]==0)       whiteScore[num+(18*distance)] += point;
+                        else if(whiteScore[num+(18*distance)] > 0) whiteScore[num+(18*distance)] += (point * 2);
 
                     }
                     else if(blackScore[num+(18*distance)] < 0){
