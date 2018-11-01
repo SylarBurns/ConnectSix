@@ -154,7 +154,8 @@ public class Gomoku{
 
                      total_Score.display();
                      frame.repaint();
-                     win = Board.win;
+					 if(Board.win) System.exit(0);
+					 
                      break ;
                      default:
                      break;
