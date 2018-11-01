@@ -35,16 +35,21 @@ class scoreColUp{
             for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if(i-distance >= 0){         //change score at left
 
-                    if(whiteScore[num-(19*distance)] >= 0)
+                    int d = 19*distance ;
+                    if(whiteScore[num-d] >= 0)
                     {
-                        whiteScore[num-(19*distance)] = 0;
+                        whiteScore[num-d] = 0;
 
-                        if(blackScore[num-(19*distance)]==0)       blackScore[num-(19*distance)] += point;
-                        else if(blackScore[num-(19*distance)] > 0) blackScore[num-(19*distance)] += (point * 2);
+                        if(blackScore[num-d]==0)       blackScore[num-d] += point;
+                        else if(blackScore[num-d] > 0) blackScore[num-d] += (point * 3);
 
                     }
-                    else if(whiteScore[num-(19*distance)] < 0)
+                    else if(whiteScore[num-d] < 0)
                     {
+                        distance--;
+                        for(;distance > 0;distance--){
+                            blackScore[num-d] /= 2;
+                        }
                         break;
                     }                 
 
@@ -61,16 +66,21 @@ class scoreColUp{
             for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if(i-distance >= 0){         //change score at left
 
-                    if(blackScore[num-(19*distance)] >= 0)
+                    int d = 19*distance ;
+                    if(blackScore[num-d] >= 0)
                     {
-                        blackScore[num-(19*distance)] = 0;
+                        blackScore[num-d] = 0;
                         
-                        if(whiteScore[num-(19*distance)]==0)       whiteScore[num-(19*distance)] += point;
-                        else if(whiteScore[num-(19*distance)] > 0) whiteScore[num-(19*distance)] += (point * 2);
+                        if(whiteScore[num-d]==0)       whiteScore[num-d] += point;
+                        else if(whiteScore[num-d] > 0) whiteScore[num-d] += (point * 3);
 
                     }
-                    else if(blackScore[num-(19*distance)] < 0)
+                    else if(blackScore[num-d] < 0)
                     {
+                        distance--;
+                        for(;distance > 0;distance--){
+                            whiteScore[num-d] /= 2;
+                        }
                         break;
                     }                 
 
