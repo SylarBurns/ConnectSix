@@ -1,9 +1,13 @@
-class totalScore{
+import java.util.* ;
+import javax.swing.* ;
+import java.awt.*;
+
+class totalScore extends JPanel{
 
     private static final int B = 0;
 	private static final int W = 1;
 	private static final int N = -1;
-
+    public int first_where = 0;
     scoreRowLeft  score_Row_L = new scoreRowLeft() ;
     scoreRowRight score_Row_R = new scoreRowRight();
     scoreColUp    score_Col_U = new scoreColUp()   ;
@@ -64,7 +68,7 @@ class totalScore{
 
     void display(){
 
-        int first_where = 0;
+
         int first_score = 0;
         System.out.print("\nScore Board\n");
 
@@ -239,8 +243,7 @@ class totalScore{
             }
         }
 	}
-
-
-
-
+    public int get_first_where() {
+    	return first_where;
+    }
 }
