@@ -73,7 +73,7 @@ class totalScore{
         for(int i = 0; i<361; i++)
         {
             
-            if(i%19 == 0) System.out.printf("\n%5d", i/19+1);
+            if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
             if(total[i] > first_score) {
 
                 first_score = total[i];
@@ -87,6 +87,7 @@ class totalScore{
         System.out.print(first_where%19+1);
         System.out.print(" , ");
         System.out.println(first_where/19+1);
+
     }
     void checkRow()
     {
@@ -104,7 +105,6 @@ class totalScore{
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
             
-
             if((blackNum==4||whiteNum==4)&&(notNum==2))
             {
                 if(Gomoku.board[num+0].BW==N) total[num+0] += 100;
@@ -114,7 +114,7 @@ class totalScore{
                 if(Gomoku.board[num+4].BW==N) total[num+4] += 100;
                 if(Gomoku.board[num+5].BW==N) total[num+5] += 100;
             }
-            else if((blackNum>=4||whiteNum>=4)&&(notNum==1))
+            if((blackNum==5||whiteNum==5)&&(notNum==1))
             {
                 if(Gomoku.board[num+0].BW==N) total[num+0] += 100;
                 if(Gomoku.board[num+1].BW==N) total[num+1] += 100;
@@ -122,20 +122,21 @@ class totalScore{
                 if(Gomoku.board[num+3].BW==N) total[num+3] += 100;
                 if(Gomoku.board[num+4].BW==N) total[num+4] += 100;
                 if(Gomoku.board[num+5].BW==N) total[num+5] += 100;
-			}
+            }
+
         }
 
     }
     void checkCol()
     {
 		for(int n=0;n<19;n++)
-		for(int i=0;i<=247;i+=19)
+		for(int i=0;i<14;i++)
         {
             int blackNum = 0;
             int whiteNum = 0;
             int notNum   = 0;
 
-            int num = n+i;
+            int num = n+(19*i);
 
             for(int m=0;m<114;m+=19)
                 if(Gomoku.board[num+m].BW==B) blackNum++;
@@ -151,7 +152,7 @@ class totalScore{
                 if(Gomoku.board[num+76].BW==N) total[num+76] += 100;
                 if(Gomoku.board[num+95].BW==N) total[num+95] += 100;
             }
-            else if((blackNum>=4||whiteNum>=4)&&(notNum==1))
+            if((blackNum==5||whiteNum==5)&&(notNum==1))
             {
                 if(Gomoku.board[num+0].BW==N)  total[num+0]  += 100;
                 if(Gomoku.board[num+19].BW==N) total[num+19] += 100;
@@ -166,7 +167,7 @@ class totalScore{
     }
     void checkSla()
     {
-		for(int j=0;j<=247;j+= 19)
+		for(int j=0;j<=247;j+=19)
 		for(int n=6+j;n<19+j;n++)
         {
             int blackNum = 0;
@@ -190,7 +191,7 @@ class totalScore{
                 if(Gomoku.board[num+90].BW==N) total[num+90] += 100;
 
             }
-            else if((blackNum>=4||whiteNum>=4)&&(notNum==1))
+            if((blackNum==5||whiteNum==5)&&(notNum==1))
             {
                 if(Gomoku.board[num+0].BW ==N) total[num+0]  += 100;
                 if(Gomoku.board[num+18].BW==N) total[num+18] += 100;
@@ -227,7 +228,7 @@ class totalScore{
                 if(Gomoku.board[num+80].BW==N)  total[num+80] += 100;
                 if(Gomoku.board[num+100].BW==N) total[num+100]+= 100;
             }
-            else if((blackNum>=4||whiteNum>=4)&&(notNum==1))
+            else if((blackNum==5||whiteNum==5)&&(notNum==1))
             {
                 if(Gomoku.board[num+0].BW==N)   total[num+0]  += 100;
                 if(Gomoku.board[num+20].BW==N)  total[num+20] += 100;
