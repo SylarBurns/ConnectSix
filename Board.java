@@ -115,7 +115,7 @@ class Board extends JPanel {
 		g.setColor(new Color(255,0,0));
 		g.fillRect(Gomoku.User.GetX()+2, Gomoku.User.GetY()+2,26,26);
 		g.setColor(new Color(0,0,255));
-		g.fillRect((Gomoku.total_Score.get_first_where()%19+1)*40-25, (Gomoku.total_Score.get_first_where()/19+1)*40-25, 20, 20);
+		g.fillRect((Gomoku.total_Score.get_first_where()%19+1)*40-25, (Gomoku.total_Score.get_first_where()/19+1)*40-25, 20, 20);//다음에 놔야할 돌의 위치를 파란색 사각형으로 표시함
 		if(Gomoku.k==361)		g.drawString("Draw", 800, 100);
 	}
 
