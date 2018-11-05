@@ -30,28 +30,28 @@ class scoreColDown{
             else                   blackScore[num] *= -1;
 
             whiteScore[num] = 0 ;
-
-            for(int point = 5, distance = 1; point > 0; point--, distance++)
+            int distance = 1;
+            // for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if(i+distance < 19){        //change score at right
 
                     int d = 19*distance ;
                     if(whiteScore[num+d] >= 0)
                     {
-                        whiteScore[num+d] = 0;
+                        // whiteScore[num+d] = 0;
                         
-                        if(blackScore[num+d]==0)       blackScore[num+d] += point;
-                        else if(blackScore[num+d] > 0) blackScore[num+d] += point;
-
+                        // if(blackScore[num+d]==0)       blackScore[num+d] += point;
+                        // else if(blackScore[num+d] > 0) blackScore[num+d] += point;
+                        blackScore[num+d] += 1;
                     }
                     else if(whiteScore[num+d] < 0)
                     {
-                        distance--;
-                        for(;distance > 0;distance--){
-                            d = 19*distance ;
-                            blackScore[num+d] = 0;
-                            whiteScore[num+d] = 0;
-                        }
-                        break;
+                        // distance--;
+                        // for(;distance > 0;distance--){
+                        //     d = 19*distance ;
+                        //     blackScore[num+d] = 0;
+                        //     whiteScore[num+d] = 0;
+                        // }
+                        // break;
                     }
 
                 }
@@ -63,28 +63,29 @@ class scoreColDown{
             else                   whiteScore[num] *= -1;
 
             blackScore[num] = 0;
-
-            for(int point = 5, distance = 1; point > 0; point--, distance++)
+            int distance = 1;
+            // for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if(i+distance < 19){        //change score at right
 
                     int d = 19*distance ;
                     if(blackScore[num+d] >= 0)
                     {
-                        blackScore[num+d] = 0;
+                        // blackScore[num+d] = 0;
 
-                        if(whiteScore[num+d]==0)       whiteScore[num+d] += point;
-                        else if(whiteScore[num+d] > 0) whiteScore[num+d] += point;
+                        // if(whiteScore[num+d]==0)       whiteScore[num+d] += point;
+                        // else if(whiteScore[num+d] > 0) whiteScore[num+d] += point;
+                        whiteScore[num+d] += 1;
 
                     }
                     else if(blackScore[num+d] < 0)
                     {
-                        distance--;
-                        for(;distance > 0;distance--){
-                            d = 19*distance ;
-                            whiteScore[num+d] = 0;
-                            blackScore[num+d] = 0;
-                        }
-                        break;
+                        // distance--;
+                        // for(;distance > 0;distance--){
+                        //     d = 19*distance ;
+                        //     whiteScore[num+d] = 0;
+                        //     blackScore[num+d] = 0;
+                        // }
+                        // break;
                     }
 
                 }
