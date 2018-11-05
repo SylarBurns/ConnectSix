@@ -114,6 +114,17 @@ class totalScore extends JPanel{
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
 
+            if((blackNum==2||whiteNum==2)&&(notNum==4))
+            {
+                if(Gomoku.board[num+0].BW==N) total[num+0] += 5;
+                if(Gomoku.board[num+1].BW==N) total[num+1] += 5;
+                if(Gomoku.board[num+2].BW==N) total[num+2] += 5;
+                if(Gomoku.board[num+3].BW==N) total[num+3] += 5;
+                if(Gomoku.board[num+4].BW==N) total[num+4] += 5;
+                if(Gomoku.board[num+5].BW==N) total[num+5] += 5;
+            }
+            
+
             if((blackNum==3||whiteNum==3)&&(notNum==3))
             {
                 if(Gomoku.board[num+0].BW==N) total[num+0] += 20;
@@ -173,6 +184,16 @@ class totalScore extends JPanel{
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
 
+            if((blackNum==2||whiteNum==2)&&(notNum==4))
+            {
+                if(Gomoku.board[num+0].BW==N) total[num+0] += 5;
+                if(Gomoku.board[num+19].BW==N) total[num+19] += 5;
+                if(Gomoku.board[num+38].BW==N) total[num+38] += 5;
+                if(Gomoku.board[num+57].BW==N) total[num+57] += 5;
+                if(Gomoku.board[num+76].BW==N) total[num+76] += 5;
+                if(Gomoku.board[num+95].BW==N) total[num+95] += 5;
+            }
+
             if((blackNum==3||whiteNum==3)&&(notNum==3))
             {
                 if(Gomoku.board[num+0].BW==N) total[num+0] += 20;
@@ -219,7 +240,7 @@ class totalScore extends JPanel{
     void checkSla()
     {
 		for(int j=0;j<=247;j+=19)
-		for(int n=6+j;n<19+j;n++)
+		for(int n=5+j;n<19+j;n++)
         {
             int blackNum = 0;
             int whiteNum = 0;
@@ -232,7 +253,17 @@ class totalScore extends JPanel{
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
 
-            
+                
+            if((blackNum==2||whiteNum==2)&&(notNum==4))
+            {
+                if(Gomoku.board[num+0].BW==N) total[num+0] += 5;
+                if(Gomoku.board[num+18].BW==N) total[num+18] += 5;
+                if(Gomoku.board[num+36].BW==N) total[num+36] += 5;
+                if(Gomoku.board[num+54].BW==N) total[num+54] += 5;
+                if(Gomoku.board[num+72].BW==N) total[num+72] += 5;
+                if(Gomoku.board[num+90].BW==N) total[num+90] += 5;
+            }     
+
             if((blackNum==3||whiteNum==3)&&(notNum==3))
             {
                 if(Gomoku.board[num+0].BW==N)  total[num+0]  += 20;
@@ -290,6 +321,16 @@ class totalScore extends JPanel{
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
 
+
+            if((blackNum==2||whiteNum==2)&&(notNum==4))
+            {
+                if(Gomoku.board[num+0].BW==N)   total[num+0]   += 5;
+                if(Gomoku.board[num+20].BW==N)  total[num+20]  += 5;
+                if(Gomoku.board[num+40].BW==N)  total[num+40]  += 5;
+                if(Gomoku.board[num+60].BW==N)  total[num+60]  += 5;
+                if(Gomoku.board[num+80].BW==N)  total[num+80]  += 5;
+                if(Gomoku.board[num+100].BW==N) total[num+100] += 5;
+            }     
             
             if((blackNum==3||whiteNum==3)&&(notNum==3))
             {

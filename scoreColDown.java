@@ -40,7 +40,7 @@ class scoreColDown{
                         whiteScore[num+d] = 0;
                         
                         if(blackScore[num+d]==0)       blackScore[num+d] += point;
-                        else if(blackScore[num+d] > 0) blackScore[num+d] += (point * 3);
+                        else if(blackScore[num+d] > 0) blackScore[num+d] += point;
 
                     }
                     else if(whiteScore[num+d] < 0)
@@ -72,7 +72,7 @@ class scoreColDown{
                         blackScore[num+d] = 0;
 
                         if(whiteScore[num+d]==0)       whiteScore[num+d] += point;
-                        else if(whiteScore[num+d] > 0) whiteScore[num+d] += (point * 3);
+                        else if(whiteScore[num+d] > 0) whiteScore[num+d] += point;
 
                     }
                     else if(blackScore[num+d] < 0)
