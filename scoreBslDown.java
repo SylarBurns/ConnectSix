@@ -48,8 +48,9 @@ class scoreBslDown{
 
                         distance--;
                         for(;distance > 0;distance--){
-                            blackScore[num+d] /= 2;
-                            whiteScore[num+d] /= 2;
+                            d = 20*distance ;
+                            blackScore[num+d] = 0;
+                            whiteScore[num+d] = 0;
                         }
                         break;
                     }
@@ -80,8 +81,9 @@ class scoreBslDown{
 
                         distance--;
                         for(;distance > 0;distance--){
-                            blackScore[num+d] /= 2;
-                            whiteScore[num+d] /= 2;
+                            d = 20*distance ;
+                            blackScore[num+d] = 0;
+                            whiteScore[num+d] = 0;
                         }
                         break;
                     }

@@ -47,8 +47,9 @@ class scoreColDown{
                     {
                         distance--;
                         for(;distance > 0;distance--){
-                            blackScore[num+d] /= 2;
-                            whiteScore[num+d] /= 2;
+                            d = 19*distance ;
+                            blackScore[num+d] = 0;
+                            whiteScore[num+d] = 0;
                         }
                         break;
                     }
@@ -79,8 +80,9 @@ class scoreColDown{
                     {
                         distance--;
                         for(;distance > 0;distance--){
-                            whiteScore[num+d] /= 2;
-                            blackScore[num+d] /= 2;
+                            d = 19*distance ;
+                            whiteScore[num+d] = 0;
+                            blackScore[num+d] = 0;
                         }
                         break;
                     }
