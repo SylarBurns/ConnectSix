@@ -135,16 +135,16 @@ public class Gomoku{
                               if(turnW > 0)
                               {
                                  board[i].BW = W;
-                                 total_Score.setTotal(board[i]);
                                  turnW-- ;
                                  if(turnW == 0) turnB = 2;
+                                 total_Score.setTotal(board[i]);
                               }
                               else if(turnB > 0) 
                               {
                                  board[i].BW = B;
-                                 total_Score.setTotal(board[i]);
                                  turnB-- ;
                                  if(turnB == 0) turnW = 2;
+                                 total_Score.setTotal(board[i]);
                               }
 
                               k++;

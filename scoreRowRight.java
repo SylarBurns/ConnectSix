@@ -57,6 +57,7 @@ class scoreRowRight{
                         distance--;
                         for(;distance > 0;distance--){
                             blackScore[num+d] /= 2;
+                            whiteScore[num+d] /= 2;
                         }
                         break;
                     }
@@ -88,6 +89,7 @@ class scoreRowRight{
                         distance--;
                         for(;distance > 0;distance--){
                             whiteScore[num+d] /= 2;
+                            blackScore[num+d] /= 2;
                         }
                         break;
                     }
