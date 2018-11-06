@@ -114,9 +114,15 @@ class Board extends JPanel {
 	
 		g.setColor(new Color(255,0,0));
 		g.fillRect(Gomoku.User.GetX()+2, Gomoku.User.GetY()+2,26,26);
-		g.setColor(new Color(0,0,255));
-		g.fillRect((Gomoku.total_Score.get_first_where()%19+1)*40-25, (Gomoku.total_Score.get_first_where()/19+1)*40-25, 20, 20);
 
+		if(Gomoku.turnW>0) {
+			g.setColor(new Color(0,255,255));
+			g.fillRect((Gomoku.total_Score.get_first_where()%19+1)*40-25, (Gomoku.total_Score.get_first_where()/19+1)*40-25, 20, 20);
+		}
+		else if(Gomoku.turnB>0) {
+			g.setColor(new Color(075,0,130));
+			g.fillRect((Gomoku.total_Score.get_first_where()%19+1)*40-25, (Gomoku.total_Score.get_first_where()/19+1)*40-25, 20, 20);
+		}
 		if(Gomoku.k==361)  g.drawString("Draw", 800, 100);
 	}
 
