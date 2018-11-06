@@ -59,7 +59,7 @@ class ck {
 	
 	public int checkSla(){
 		for(int j=0;j<=247;j+= 19)
-		for(int n=6+j;n<19+j;n++)
+		for(int n=5+j;n<19+j;n++)
 		if(Gomoku.board[n].BW!=N)
 		if((Gomoku.board[n].BW==Gomoku.board[n+18].BW)&&
 		(Gomoku.board[n+18].BW==Gomoku.board[n+36].BW)&&
