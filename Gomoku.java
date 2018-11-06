@@ -16,11 +16,13 @@ public class Gomoku{
 
    public static int k = 1;            // 유저가 놓은 돌 갯수 : 1인 이유는 검은색 돌 1개는 무조건 놓여있기 때문
 
-   public static int turnW = 0;      //White turn
+   public static int turnW = 2;      //White turn
    public static int turnB = 0;      //Black turn
+
    public static Location User = new Location()  ; //  Cursor를 위한 Location객체 만들어주기
 
    public static int userColor = N;   //store user's color 
+   public static int AIColor = N ;
    static totalScore total_Score = new totalScore();
 
 
@@ -47,6 +49,12 @@ public class Gomoku{
          }
       }
 
+ 
+
+      if(userColor == B) AIColor = W;
+      else               AIColor = B;
+
+      AI computer = new AI(AIColor);
 
 
       JFrame frame = new JFrame("Gomoku") ;
@@ -90,38 +98,71 @@ public class Gomoku{
       total_Score.setTotal(setboard[0]);
       total_Score.display();
 
-      turnW = 2;                    // white has two turn in first
       System.out.println("Check");
+      
+
+
          class Key implements KeyListener {
+
             public void keyPressed(java.awt.event.KeyEvent e) {
                   int code=e.getKeyCode();
                   switch(code){
 
-                     case 38:
+                  
+                     case 88 :
+                        if(AIColor == B){
+
+                              if(turnB>0){
+                                    total_Score.setTotal(AI.turn(k, total_Score.first_where));
+                                    turnB-- ;
+                                    if(turnB == 0) turnW = 2;
+                                    k++;
+                                    total_Score.display();
+                                    frame.repaint();
+                                    if(Board.win) System.exit(0);
+                              }
+
+                        }else{
+
+                              if(turnW>0){
+                                    total_Score.setTotal(AI.turn(k, total_Score.first_where));
+                                    turnW-- ;
+                                    if(turnW == 0) turnB = 2;
+                                    k++;
+                                    total_Score.display();
+                                    frame.repaint();
+                                    if(Board.win) System.exit(0);
+                              }    
+
+                        }
+
+                     break;
+
+                     case 38 :
                      if(User.GetY() > 10) User.SetLocation(User.GetX(), User.GetY()-40);
                      frame.repaint();
                      win = Board.win;
                      break;
 
-                     case 40:
+                     case 40 :
                      if(User.GetY() < 730) User.SetLocation(User.GetX(), User.GetY()+40);
                      frame.repaint();
                      win = Board.win;
                      break;
 
-                     case 37:
+                     case 37 :
                      if(User.GetX() > 10) User.SetLocation(User.GetX()-40, User.GetY());
                      frame.repaint();
                      win = Board.win;
                      break;
 
-                     case 39:
+                     case 39 :
                      if(User.GetX() < 730) User.SetLocation(User.GetX()+40, User.GetY());
                      frame.repaint();
                      win = Board.win;
                      break;
 
-                     case 32: 
+                     case 32 : 
                      setboard[k].SetLocation(User.GetX(),User.GetY()); // 놓은 돌의 위치를 setboard 배열에 계속 저장해준다.
                      for(int i=0;i<361;i++)
                         if((setboard[k].GetX()==board[i].GetX())&&
@@ -151,9 +192,9 @@ public class Gomoku{
                            }
 
 
-                     total_Score.display();
-                     frame.repaint();
-					 if(Board.win) System.exit(0);
+                  total_Score.display();
+                  frame.repaint();
+			if(Board.win) System.exit(0);
 
 					 
                      break ;
@@ -162,6 +203,36 @@ public class Gomoku{
                }
             }
             public void keyReleased(java.awt.event.KeyEvent e) {
+
+                  while(((userColor==B)&&(turnW>0))||((userColor==W)&&(turnB>0))) {
+            		setboard[k].SetLocation((total_Score.get_first_where()%19+1)*40-30, (total_Score.get_first_where()/19+1)*40-30);
+                    for(int i=0;i<361;i++)
+                        if((setboard[k].GetX()==board[i].GetX())&&
+                           (setboard[k].GetY()==board[i].GetY()))
+                            if(board[i].Getis() == false)
+                            {
+                               board[i].Setis(true);
+                               
+                                if(turnW > 0)
+                               {
+                                  board[i].BW = W;
+                                  turnW-- ;
+                                  if(turnW == 0) turnB = 2;
+                                  total_Score.setTotal(board[i]);
+                               }
+                               else if(turnB > 0) 
+                               {
+                                  board[i].BW = B;
+                                  turnB-- ;
+                                  if(turnB == 0) turnW = 2;
+                                  total_Score.setTotal(board[i]);
+                               }
+                                k++;
+                            }
+                    total_Score.display();
+                    frame.repaint();
+					if(Board.win) System.exit(0);
+            	}
             	
             }
             

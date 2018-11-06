@@ -6,8 +6,10 @@ class totalScore extends JPanel{
 
     private static final int B = 0;
 	private static final int W = 1;
-	private static final int N = -1;
+    private static final int N = -1;
+    
     public int first_where = 0;
+    
     scoreRowLeft  score_Row_L = new scoreRowLeft() ;
     scoreRowRight score_Row_R = new scoreRowRight();
     scoreColUp    score_Col_U = new scoreColUp()   ;
@@ -19,7 +21,10 @@ class totalScore extends JPanel{
 
 
 
-    int [] total = new int[361];
+    int [] total    = new int[361];
+    int [] totBlack = new int[361];
+    int [] totWhite = new int[361];
+
 
 
     totalScore(){
@@ -42,6 +47,7 @@ class totalScore extends JPanel{
 
 
         for(int i = 0; i < 361 ; i++)
+        {
             total[i] = score_Row_L.blackScore[i]
                      + score_Row_L.whiteScore[i]
                      + score_Row_R.blackScore[i]
@@ -59,6 +65,26 @@ class totalScore extends JPanel{
                      + score_Bsl_D.blackScore[i]
                      + score_Bsl_D.whiteScore[i];
 
+         totBlack[i] = score_Row_L.blackScore[i]
+                     + score_Row_R.blackScore[i]
+                     + score_Col_U.blackScore[i]
+                     + score_Col_D.blackScore[i]
+                     + score_Sla_U.blackScore[i]
+                     + score_Sla_D.blackScore[i]
+                     + score_Bsl_U.blackScore[i]
+                     + score_Bsl_D.blackScore[i];
+
+
+         totWhite[i] = score_Row_L.whiteScore[i]
+                     + score_Row_R.whiteScore[i]
+                     + score_Col_U.whiteScore[i]
+                     + score_Col_D.whiteScore[i]
+                     + score_Sla_U.whiteScore[i]
+                     + score_Sla_D.whiteScore[i]
+                     + score_Bsl_U.whiteScore[i]
+                     + score_Bsl_D.whiteScore[i];
+        }
+
 
         checkRow();
         checkCol();
@@ -71,33 +97,156 @@ class totalScore extends JPanel{
          
     }
 
+    
+
     void display(){
 
 
-        int first_score = 0;
+        int turn = N;
+        if(Gomoku.turnB > 0)      turn = B;
+        else if(Gomoku.turnW > 0) turn = W;
+
+        int first_score =  0;
+        int connectBlackFive = 0;
+        int connectWhiteFive = 0;
+        int connectBlackFour = 0;
+        int connectWhiteFour = 0;
+        int connectBlackThree = 0;
+        int connectWhiteThree = 0;
+
         System.out.print("\nScore Board\n");
 
         for(int i = 0; i < 20; i++)     System.out.printf("%5d ", i);
 
+
+
         for(int i = 0; i<361; i++)
         {
+            if(totBlack[i] >= 400)  connectBlackFour++;
+            if(totWhite[i] >= 400)  connectWhiteFour++;
+            if(totBlack[i] >= 1000) connectBlackFive++;
+            if(totWhite[i] >= 1000) connectWhiteFive++;
+            if(totBlack[i] >= 120)  connectBlackThree++;
+            if(totWhite[i] >= 120)  connectWhiteThree++;
             
+        }
+
+        if((Gomoku.turnB > 0)&&(connectBlackFive >= 1))
+        {
+            for(int i = 0; i<361; i++)
+            {
+                if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+                if(totBlack[i] > first_score) {
+    
+                    first_score = totBlack[i];
+                    first_where = i;
+                }
+                System.out.printf("%5d ", totBlack[i]);
+            }
+        }
+        else if((Gomoku.turnW > 0)&&(connectWhiteFive >= 1))
+        {
+            for(int i = 0; i<361; i++)
+            {
+                if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+                if(totWhite[i] > first_score) {
+    
+                    first_score = totWhite[i];
+                    first_where = i;
+                }
+                System.out.printf("%5d ", totWhite[i]);
+            }
+        }
+        else if((Gomoku.turnB > 0)&&(connectBlackFour >= 2))
+        {
+            for(int i = 0; i<361; i++)
+            {
+                if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+                if(totBlack[i] > first_score) {
+    
+                    first_score = totBlack[i];
+                    first_where = i;
+                }
+                System.out.printf("%5d ", totBlack[i]);
+            }
+        }
+        else if((Gomoku.turnW > 0)&&(connectWhiteFour >= 2))
+        {
+            for(int i = 0; i<361; i++)
+            {
+                if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+                if(totWhite[i] > first_score) {
+    
+                    first_score = totWhite[i];
+                    first_where = i;
+                }
+                System.out.printf("%5d ", totWhite[i]);
+            }
+        }
+        // else if((Gomoku.turnB > 0)&&(connectBlackThree >= 4))
+        // {
+        //     for(int i = 0; i<361; i++)
+        //     {
+        //         if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+        //         if(totBlack[i] > first_score) {
+    
+        //             first_score = totBlack[i];
+        //             first_where = i;
+        //         }
+        //         System.out.printf("%5d ", totBlack[i]);
+        //     }
+        // }
+        // else if((Gomoku.turnW > 0)&&(connectWhiteThree >= 4))
+        // {
+        //     for(int i = 0; i<361; i++)
+        //     {
+        //         if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+        //         if(totWhite[i] > first_score) {
+    
+        //             first_score = totWhite[i];
+        //             first_where = i;
+        //         }
+        //         System.out.printf("%5d ", totWhite[i]);
+        //     }
+        // }
+        else 
+        {
+            for(int i = 0; i<361; i++)
+            {
             if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+
             if(total[i] > first_score) {
 
                 first_score = total[i];
                 first_where = i;
             }
-            
             System.out.printf("%5d ", total[i]);
+            }
         }
+    
 
         System.out.println();
         System.out.print(first_where%19+1);
         System.out.print(" , ");
         System.out.println(first_where/19+1);
-
+        
     }
+        
+
+
+
     void checkRow()
     {
         for(int n=0;n<19;n++)
@@ -114,60 +263,86 @@ class totalScore extends JPanel{
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
 
-            if((blackNum==2||whiteNum==2)&&(notNum==4))
-            {
-                if(Gomoku.board[num+0].BW==N) total[num+0] += 5;
-                if(Gomoku.board[num+1].BW==N) total[num+1] += 5;
-                if(Gomoku.board[num+2].BW==N) total[num+2] += 5;
-                if(Gomoku.board[num+3].BW==N) total[num+3] += 5;
-                if(Gomoku.board[num+4].BW==N) total[num+4] += 5;
-                if(Gomoku.board[num+5].BW==N) total[num+5] += 5;
-            }
             
-
-            if((blackNum==3||whiteNum==3)&&(notNum==3))
+            if((blackNum==5)&&(notNum==1))
             {
-                if(Gomoku.board[num+0].BW==N) total[num+0] += 20;
-                if(Gomoku.board[num+1].BW==N) total[num+1] += 20;
-                if(Gomoku.board[num+2].BW==N) total[num+2] += 20;
-                if(Gomoku.board[num+3].BW==N) total[num+3] += 20;
-                if(Gomoku.board[num+4].BW==N) total[num+4] += 20;
-                if(Gomoku.board[num+5].BW==N) total[num+5] += 20;
+                for(int a = 0; a < 6; a++){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 1000;
+                        totBlack[num+a] += 1000;
+                    }
+                }
+            }
+            else if((blackNum==4)&&(notNum==2)&&(Gomoku.turnB!=1))
+            {
+                for(int a = 0; a < 6; a++){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 400;
+                        totBlack[num+a] += 400;
+                    }
+                }
+            }
+            else if((blackNum==3)&&(notNum==3))
+            {
+                for(int a = 0; a < 6; a++){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 40;
+                        totBlack[num+a] += 40;
+                    }
+                }
+            }
+            else if((blackNum==2)&&(notNum==4))
+            {
+                for(int a = 0; a < 6; a++){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 10;
+                        totBlack[num+a] += 10;
+                    }
+                }
             }
 
-            if((blackNum==4)&&(notNum==2)&&(Gomoku.turnB!=1))
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            if((whiteNum==5)&&(notNum==1))
             {
-                if(Gomoku.board[num+0].BW==N) total[num+0] += 200;
-                if(Gomoku.board[num+1].BW==N) total[num+1] += 200;
-                if(Gomoku.board[num+2].BW==N) total[num+2] += 200;
-                if(Gomoku.board[num+3].BW==N) total[num+3] += 200;
-                if(Gomoku.board[num+4].BW==N) total[num+4] += 200;
-                if(Gomoku.board[num+5].BW==N) total[num+5] += 200;
+                for(int a = 0; a < 6; a++){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 1000;
+                        totWhite[num+a] += 1000;
+                    }
+                }
             }
-
-            if((whiteNum==4)&&(notNum==2)&&(Gomoku.turnW!=1))
+            else if((whiteNum==4)&&(notNum==2)&&(Gomoku.turnW!=1))
             {
-                if(Gomoku.board[num+0].BW==N) total[num+0] += 200;
-                if(Gomoku.board[num+1].BW==N) total[num+1] += 200;
-                if(Gomoku.board[num+2].BW==N) total[num+2] += 200;
-                if(Gomoku.board[num+3].BW==N) total[num+3] += 200;
-                if(Gomoku.board[num+4].BW==N) total[num+4] += 200;
-                if(Gomoku.board[num+5].BW==N) total[num+5] += 200;
+                for(int a = 0; a < 6; a++){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 400;
+                        totWhite[num+a] += 400;
+                    }
+                }
             }
-
-            if((blackNum==5||whiteNum==5)&&(notNum==1))
+            else if((whiteNum==3)&&(notNum==3))
             {
-                if(Gomoku.board[num+0].BW==N) total[num+0] += 1000;
-                if(Gomoku.board[num+1].BW==N) total[num+1] += 1000;
-                if(Gomoku.board[num+2].BW==N) total[num+2] += 1000;
-                if(Gomoku.board[num+3].BW==N) total[num+3] += 1000;
-                if(Gomoku.board[num+4].BW==N) total[num+4] += 1000;
-                if(Gomoku.board[num+5].BW==N) total[num+5] += 1000;
+                for(int a = 0; a < 6; a++){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 40;
+                        totWhite[num+a] += 40;
+                    }
+                }
             }
-
+            else if((whiteNum==2)&&(notNum==4))
+            {
+                for(int a = 0; a < 6; a++){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 10;
+                        totWhite[num+a] += 10;
+                    }
+                }
+            }
         }
-
     }
+
     void checkCol()
     {
 		for(int n=0;n<19;n++)
@@ -184,59 +359,83 @@ class totalScore extends JPanel{
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
 
-            if((blackNum==2||whiteNum==2)&&(notNum==4))
+            if((blackNum==5)&&(notNum==1))
             {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 5;
-                if(Gomoku.board[num+19].BW==N) total[num+19] += 5;
-                if(Gomoku.board[num+38].BW==N) total[num+38] += 5;
-                if(Gomoku.board[num+57].BW==N) total[num+57] += 5;
-                if(Gomoku.board[num+76].BW==N) total[num+76] += 5;
-                if(Gomoku.board[num+95].BW==N) total[num+95] += 5;
+                for(int a = 0; a  < 114; a += 19){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 1000;
+                        totBlack[num+a] += 1000;
+                    }
+                }
+            }
+            else if((blackNum==4)&&(notNum==2)&&(Gomoku.turnB!=1)){
+                for(int a = 0; a  < 114; a += 19){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 400;
+                        totBlack[num+a] += 400;
+                    }   
+                }
+            }
+            else if((blackNum==3)&&(notNum==3))
+            {
+                for(int a = 0; a  < 114; a += 19){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 40;
+                        totBlack[num+a] += 40;
+                    }   
+                }
+            }
+            else if((blackNum==2)&&(notNum==4))
+            {
+                for(int a = 0; a  < 114; a += 19){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 10;
+                        totBlack[num+a] += 10;
+                    }   
+                }
             }
 
-            if((blackNum==3||whiteNum==3)&&(notNum==3))
-            {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 20;
-                if(Gomoku.board[num+19].BW==N) total[num+19] += 20;
-                if(Gomoku.board[num+38].BW==N) total[num+38] += 20;
-                if(Gomoku.board[num+57].BW==N) total[num+57] += 20;
-                if(Gomoku.board[num+76].BW==N) total[num+76] += 20;
-                if(Gomoku.board[num+95].BW==N) total[num+95] += 20;
-            }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            if((blackNum==4)&&(notNum==2)&&(Gomoku.turnB!=1))
+            if((whiteNum==5)&&(notNum==1))
             {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 200;
-                if(Gomoku.board[num+19].BW==N) total[num+19] += 200;
-                if(Gomoku.board[num+38].BW==N) total[num+38] += 200;
-                if(Gomoku.board[num+57].BW==N) total[num+57] += 200;
-                if(Gomoku.board[num+76].BW==N) total[num+76] += 200;
-                if(Gomoku.board[num+95].BW==N) total[num+95] += 200;
+                for(int a = 0; a  < 114; a += 19){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 1000;
+                        totWhite[num+a] += 1000;
+                    }
+                }
             }
-
-            if((whiteNum==4)&&(notNum==2)&&(Gomoku.turnW!=1))
+            else if((whiteNum==4)&&(notNum==2)&&(Gomoku.turnW!=1)){
+                for(int a = 0; a  < 114; a += 19){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 400;
+                        totWhite[num+a] += 400;
+                    }   
+                }
+            }
+            else if((whiteNum==3)&&(notNum==3))
             {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 200;
-                if(Gomoku.board[num+19].BW==N) total[num+19] += 200;
-                if(Gomoku.board[num+38].BW==N) total[num+38] += 200;
-                if(Gomoku.board[num+57].BW==N) total[num+57] += 200;
-                if(Gomoku.board[num+76].BW==N) total[num+76] += 200;
-                if(Gomoku.board[num+95].BW==N) total[num+95] += 200;
+                for(int a = 0; a  < 114; a += 19){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 40;
+                        totWhite[num+a] += 40;
+                    }   
+                }
             }
-
-            if((blackNum==5||whiteNum==5)&&(notNum==1))
+            else if((whiteNum==2)&&(notNum==4))
             {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 1000;
-                if(Gomoku.board[num+19].BW==N) total[num+19] += 1000;
-                if(Gomoku.board[num+38].BW==N) total[num+38] += 1000;
-                if(Gomoku.board[num+57].BW==N) total[num+57] += 1000;
-                if(Gomoku.board[num+76].BW==N) total[num+76] += 1000;
-                if(Gomoku.board[num+95].BW==N) total[num+95] += 1000;
+                for(int a = 0; a  < 114; a += 19){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 10;
+                        totWhite[num+a] += 10;
+                    }
+                }
             }
-            
-          
         }
     }
+
     void checkSla()
     {
 		for(int j=0;j<=247;j+=19)
@@ -253,57 +452,84 @@ class totalScore extends JPanel{
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
 
-                
-            if((blackNum==2||whiteNum==2)&&(notNum==4))
+            if((blackNum==5)&&(notNum==1))
             {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 5;
-                if(Gomoku.board[num+18].BW==N) total[num+18] += 5;
-                if(Gomoku.board[num+36].BW==N) total[num+36] += 5;
-                if(Gomoku.board[num+54].BW==N) total[num+54] += 5;
-                if(Gomoku.board[num+72].BW==N) total[num+72] += 5;
-                if(Gomoku.board[num+90].BW==N) total[num+90] += 5;
-            }     
-
-            if((blackNum==3||whiteNum==3)&&(notNum==3))
-            {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 20;
-                if(Gomoku.board[num+18].BW==N) total[num+18] += 20;
-                if(Gomoku.board[num+36].BW==N) total[num+36] += 20;
-                if(Gomoku.board[num+54].BW==N) total[num+54] += 20;
-                if(Gomoku.board[num+72].BW==N) total[num+72] += 20;
-                if(Gomoku.board[num+90].BW==N) total[num+90] += 20;
+                for(int a = 0; a < 108 ; a += 18){
+                    if(Gomoku.board[num+a].BW ==N){
+                         total[num+a]   += 1000;
+                         totBlack[num+a]+= 1000;
+                    }
+                }
             }
-            if((blackNum==4)&&(notNum==2)&&(Gomoku.turnB!=1))
-            {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 200;
-                if(Gomoku.board[num+18].BW==N) total[num+18] += 200;
-                if(Gomoku.board[num+36].BW==N) total[num+36] += 200;
-                if(Gomoku.board[num+54].BW==N) total[num+54] += 200;
-                if(Gomoku.board[num+72].BW==N) total[num+72] += 200;
-                if(Gomoku.board[num+90].BW==N) total[num+90] += 200;
-
+            else if((blackNum==4)&&(notNum==2)&&(Gomoku.turnB!=1)){
+                for(int a = 0; a < 108 ; a += 18){
+                    if(Gomoku.board[num+a].BW ==N){
+                        total[num+a]   += 400;
+                        totBlack[num+a]+= 400;
+                    }
+                }
             }
-            if((whiteNum==4)&&(notNum==2)&&(Gomoku.turnW!=1))
+            else if((blackNum==3)&&(notNum==3))
             {
-                if(Gomoku.board[num+0].BW==N)  total[num+0]  += 200;
-                if(Gomoku.board[num+18].BW==N) total[num+18] += 200;
-                if(Gomoku.board[num+36].BW==N) total[num+36] += 200;
-                if(Gomoku.board[num+54].BW==N) total[num+54] += 200;
-                if(Gomoku.board[num+72].BW==N) total[num+72] += 200;
-                if(Gomoku.board[num+90].BW==N) total[num+90] += 200;
-
+                for(int a = 0; a < 108 ; a += 18){
+                    if(Gomoku.board[num+a].BW ==N){
+                        total[num+a]   += 40;
+                        totBlack[num+a]+= 40;
+                    }
+                }
             }
-            if((blackNum==5||whiteNum==5)&&(notNum==1))
+            else if((blackNum==2)&&(notNum==4))
             {
-                if(Gomoku.board[num+0].BW ==N) total[num+0]  += 1000;
-                if(Gomoku.board[num+18].BW==N) total[num+18] += 1000;
-                if(Gomoku.board[num+36].BW==N) total[num+36] += 1000;
-                if(Gomoku.board[num+54].BW==N) total[num+54] += 1000;
-                if(Gomoku.board[num+72].BW==N) total[num+72] += 1000;
-                if(Gomoku.board[num+90].BW==N) total[num+90] += 1000;
+                for(int a = 0; a < 108 ; a += 18){
+                    if(Gomoku.board[num+a].BW ==N){
+                        total[num+a]   += 10;
+                        totBlack[num+a]+= 10;
+                    }
+                }
+            }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            if((whiteNum==5)&&(notNum==1))
+            {
+                for(int a = 0; a < 108 ; a += 18){
+                    if(Gomoku.board[num+a].BW ==N){
+                         total[num+a]   += 1000;
+                         totWhite[num+a]+= 1000;
+                    }
+                }
+            }
+            else if((whiteNum==4)&&(notNum==2)&&(Gomoku.turnW!=1)){
+                for(int a = 0; a < 108 ; a += 18){
+                    if(Gomoku.board[num+a].BW ==N){
+                        total[num+a]   += 400;
+                        totWhite[num+a]+= 400;
+                    }
+                }
+            }
+            else if((whiteNum==3)&&(notNum==3))
+            {
+                for(int a = 0; a < 108 ; a += 18){
+                    if(Gomoku.board[num+a].BW ==N){
+                        total[num+a]   += 40;
+                        totWhite[num+a]+= 40;
+                    }
+                }
+            }
+            else if((whiteNum==2)&&(notNum==4))
+            {
+                for(int a = 0; a < 108 ; a += 18){
+                    if(Gomoku.board[num+a].BW ==N){
+                        total[num+a]   += 10;
+                        totWhite[num+a]+= 10;
+                    }
+                }
             }
         }
     }
+
+
     void checkBackSla()
     {
 		for(int i=0;i<=247;i+=19) 
@@ -320,54 +546,86 @@ class totalScore extends JPanel{
                 if(Gomoku.board[num+m].BW==B) blackNum++;
                 else if(Gomoku.board[num+m].BW==W) whiteNum++;
                 else notNum++;
+                
 
 
-            if((blackNum==2||whiteNum==2)&&(notNum==4))
-            {
-                if(Gomoku.board[num+0].BW==N)   total[num+0]   += 5;
-                if(Gomoku.board[num+20].BW==N)  total[num+20]  += 5;
-                if(Gomoku.board[num+40].BW==N)  total[num+40]  += 5;
-                if(Gomoku.board[num+60].BW==N)  total[num+60]  += 5;
-                if(Gomoku.board[num+80].BW==N)  total[num+80]  += 5;
-                if(Gomoku.board[num+100].BW==N) total[num+100] += 5;
-            }     
             
-            if((blackNum==3||whiteNum==3)&&(notNum==3))
+            if((blackNum==5)&&(notNum==1))
             {
-                if(Gomoku.board[num+0].BW==N)   total[num+0]   += 20;
-                if(Gomoku.board[num+20].BW==N)  total[num+20]  += 20;
-                if(Gomoku.board[num+40].BW==N)  total[num+40]  += 20;
-                if(Gomoku.board[num+60].BW==N)  total[num+60]  += 20;
-                if(Gomoku.board[num+80].BW==N)  total[num+80]  += 20;
-                if(Gomoku.board[num+100].BW==N) total[num+100] += 20;
+                for(int a = 0; a < 120; a += 20){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 1000;
+                        totBlack[num+a] += 1000;
+                    }
+                }
             }
-            if((whiteNum==4)&&(notNum==2)&&(Gomoku.turnW!=1))
+            else if((blackNum==4)&&(notNum==2)&&(Gomoku.turnB!=1)){
+
+                for(int a = 0; a < 120; a += 20){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 400;
+                        totBlack[num+a] += 400;
+                    }
+                }
+            }
+            else if((blackNum==3)&&(notNum==3))
             {
-                if(Gomoku.board[num+0].BW==N)   total[num+0]  += 200;
-                if(Gomoku.board[num+20].BW==N)  total[num+20] += 200;
-                if(Gomoku.board[num+40].BW==N)  total[num+40] += 200;
-                if(Gomoku.board[num+60].BW==N)  total[num+60] += 200;
-                if(Gomoku.board[num+80].BW==N)  total[num+80] += 200;
-                if(Gomoku.board[num+100].BW==N) total[num+100]+= 200;
+                for(int a = 0; a < 120; a += 20){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 40;
+                        totBlack[num+a] += 40;
+                    }
+                }
             }
-            if((blackNum==4)&&(notNum==2)&&(Gomoku.turnB!=1))
+            else if((blackNum==2)&&(notNum==4))
             {
-                if(Gomoku.board[num+0].BW==N)   total[num+0]  += 200;
-                if(Gomoku.board[num+20].BW==N)  total[num+20] += 200;
-                if(Gomoku.board[num+40].BW==N)  total[num+40] += 200;
-                if(Gomoku.board[num+60].BW==N)  total[num+60] += 200;
-                if(Gomoku.board[num+80].BW==N)  total[num+80] += 200;
-                if(Gomoku.board[num+100].BW==N) total[num+100]+= 200;
-            }
-            if((blackNum==5||whiteNum==5)&&(notNum==1))
+                for(int a = 0; a < 120; a += 20){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 10;
+                        totBlack[num+a] += 10;
+                    }
+                }
+            }    
+            
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            if((whiteNum==5)&&(notNum==1))
             {
-                if(Gomoku.board[num+0].BW==N)   total[num+0]  += 1000;
-                if(Gomoku.board[num+20].BW==N)  total[num+20] += 1000;
-                if(Gomoku.board[num+40].BW==N)  total[num+40] += 1000;
-                if(Gomoku.board[num+60].BW==N)  total[num+60] += 1000;
-                if(Gomoku.board[num+80].BW==N)  total[num+80] += 1000;
-                if(Gomoku.board[num+100].BW==N) total[num+100]+= 1000;
+                for(int a = 0; a < 120; a += 20){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 1000;
+                        totWhite[num+a] += 1000;
+                    }
+                }
             }
+            else if((whiteNum==4)&&(notNum==2)&&(Gomoku.turnW!=1)){
+
+                for(int a = 0; a < 120; a += 20){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 400;
+                        totWhite[num+a] += 400;
+                    }
+                }
+            }
+            else if((whiteNum==3)&&(notNum==3))
+            {
+                for(int a = 0; a < 120; a += 20){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 40;
+                        totWhite[num+a] += 40;
+                    }
+                }
+            }
+            else if((whiteNum==2)&&(notNum==4))
+            {
+                for(int a = 0; a < 120; a += 20){
+                    if(Gomoku.board[num+a].BW==N){
+                        total[num+a]    += 10;
+                        totWhite[num+a] += 10;
+                    }
+                }
+            }    
         }
 	}
     public int get_first_where() {

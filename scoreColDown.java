@@ -26,7 +26,7 @@ class scoreColDown{
         if(choice.BW == B)
         {
 
-            if(blackScore[num]==0) blackScore[num] =  -1;
+            if(blackScore[num]==0) blackScore[num] =  -2;
             else                   blackScore[num] *= -1;
 
             whiteScore[num] = 0 ;
@@ -59,7 +59,7 @@ class scoreColDown{
         }
         else if(choice.BW == W)
         {
-            if(whiteScore[num]==0) whiteScore[num] = -1 ;
+            if(whiteScore[num]==0) whiteScore[num] =  -2;
             else                   whiteScore[num] *= -1;
 
             blackScore[num] = 0;
