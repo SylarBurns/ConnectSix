@@ -33,6 +33,116 @@ class totalScore extends JPanel{
 
     }
 
+    public totalScore(totalScore obj){
+        for(int i = 0; i < 361; i++){
+            total[i] = obj.getTotal(i);
+            totBlack[i] = obj.getToTBlack(i);
+            totWhite[i] = obj.getToTWhite(i);
+            score_Row_L.blackScore[i] = obj.score_Row_L.blackScore[i];
+            score_Row_L.whiteScore[i] = obj.score_Row_L.whiteScore[i];
+            score_Row_R.blackScore[i] = obj.score_Row_R.blackScore[i];
+            score_Row_R.whiteScore[i] = obj.score_Row_R.whiteScore[i];
+            score_Col_U.blackScore[i] = obj.score_Col_U.blackScore[i];
+            score_Col_U.whiteScore[i] = obj.score_Col_U.whiteScore[i];
+            score_Col_D.blackScore[i] = obj.score_Col_D.blackScore[i];
+            score_Col_D.whiteScore[i] = obj.score_Col_D.whiteScore[i];
+            score_Sla_U.blackScore[i] = obj.score_Sla_U.blackScore[i];
+            score_Sla_U.whiteScore[i] = obj.score_Sla_U.whiteScore[i];
+            score_Sla_D.blackScore[i] = obj.score_Sla_D.blackScore[i];
+            score_Sla_D.whiteScore[i] = obj.score_Sla_D.whiteScore[i];
+            score_Bsl_U.blackScore[i] = obj.score_Bsl_U.blackScore[i];
+            score_Bsl_U.whiteScore[i] = obj.score_Bsl_U.whiteScore[i];
+            score_Bsl_D.blackScore[i] = obj.score_Bsl_D.blackScore[i];
+            score_Bsl_D.whiteScore[i] = obj.score_Bsl_D.whiteScore[i];
+        }
+    }
+
+    public void copyElement(totalScore obj){
+        for(int i = 0; i < 361; i++){
+            total[i] = obj.getTotal(i);
+            totBlack[i] = obj.getToTBlack(i);
+            totWhite[i] = obj.getToTWhite(i);
+            score_Row_L.blackScore[i] = obj.score_Row_L.blackScore[i];
+            score_Row_L.whiteScore[i] = obj.score_Row_L.whiteScore[i];
+            score_Row_R.blackScore[i] = obj.score_Row_R.blackScore[i];
+            score_Row_R.whiteScore[i] = obj.score_Row_R.whiteScore[i];
+            score_Col_U.blackScore[i] = obj.score_Col_U.blackScore[i];
+            score_Col_U.whiteScore[i] = obj.score_Col_U.whiteScore[i];
+            score_Col_D.blackScore[i] = obj.score_Col_D.blackScore[i];
+            score_Col_D.whiteScore[i] = obj.score_Col_D.whiteScore[i];
+            score_Sla_U.blackScore[i] = obj.score_Sla_U.blackScore[i];
+            score_Sla_U.whiteScore[i] = obj.score_Sla_U.whiteScore[i];
+            score_Sla_D.blackScore[i] = obj.score_Sla_D.blackScore[i];
+            score_Sla_D.whiteScore[i] = obj.score_Sla_D.whiteScore[i];
+            score_Bsl_U.blackScore[i] = obj.score_Bsl_U.blackScore[i];
+            score_Bsl_U.whiteScore[i] = obj.score_Bsl_U.whiteScore[i];
+            score_Bsl_D.blackScore[i] = obj.score_Bsl_D.blackScore[i];
+            score_Bsl_D.whiteScore[i] = obj.score_Bsl_D.whiteScore[i];
+        }
+    }
+    
+
+    // public void setScoreBoard(){
+    //     for(int i = 0; i < 361 ; i++)
+    //     {
+    //         total[i] = score_Row_L.blackScore[i]
+    //                  + score_Row_L.whiteScore[i]
+    //                  + score_Row_R.blackScore[i]
+    //                  + score_Row_R.whiteScore[i]
+    //                  + score_Col_U.blackScore[i]
+    //                  + score_Col_U.whiteScore[i]
+    //                  + score_Col_D.blackScore[i]
+    //                  + score_Col_D.whiteScore[i]
+    //                  + score_Sla_U.blackScore[i]
+    //                  + score_Sla_U.whiteScore[i]
+    //                  + score_Sla_D.blackScore[i]
+    //                  + score_Sla_D.whiteScore[i]
+    //                  + score_Bsl_U.blackScore[i]
+    //                  + score_Bsl_U.whiteScore[i]
+    //                  + score_Bsl_D.blackScore[i]
+    //                  + score_Bsl_D.whiteScore[i];
+
+    //      totBlack[i] = score_Row_L.blackScore[i]
+    //                  + score_Row_R.blackScore[i]
+    //                  + score_Col_U.blackScore[i]
+    //                  + score_Col_D.blackScore[i]
+    //                  + score_Sla_U.blackScore[i]
+    //                  + score_Sla_D.blackScore[i]
+    //                  + score_Bsl_U.blackScore[i]
+    //                  + score_Bsl_D.blackScore[i];
+
+
+    //      totWhite[i] = score_Row_L.whiteScore[i]
+    //                  + score_Row_R.whiteScore[i]
+    //                  + score_Col_U.whiteScore[i]
+    //                  + score_Col_D.whiteScore[i]
+    //                  + score_Sla_U.whiteScore[i]
+    //                  + score_Sla_D.whiteScore[i]
+    //                  + score_Bsl_U.whiteScore[i]
+    //                  + score_Bsl_D.whiteScore[i];
+    //     }
+
+
+    //     checkRow();
+    //     checkCol();
+    //     checkSla();
+    //     checkBackSla();
+
+    // }
+
+    
+
+    public int getTotal(int i){
+        return total[i];
+    }
+    public int getToTBlack(int i){
+        return totBlack[i];
+    }
+    public int getToTWhite(int i){
+        return totBlack[i];
+    }
+
+
     void setTotal(Location choice){
 
         score_Row_L.sum(choice);
