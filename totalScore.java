@@ -122,16 +122,17 @@ class totalScore extends JPanel{
 
         for(int i = 0; i<361; i++)
         {
-            if(totBlack[i] >= 400)  connectBlackFour++;
-            if(totWhite[i] >= 400)  connectWhiteFour++;
             if(totBlack[i] >= 1000) connectBlackFive++;
             if(totWhite[i] >= 1000) connectWhiteFive++;
+            if(totBlack[i] >= 400)  connectBlackFour++;
+            if(totWhite[i] >= 400)  connectWhiteFour++;
             if(totBlack[i] >= 120)  connectBlackThree++;
             if(totWhite[i] >= 120)  connectWhiteThree++;
-            
         }
 
-        if((Gomoku.turnB > 0)&&(connectBlackFive >= 1))
+
+
+        if((turn==B)&&(connectBlackFive >= 1))
         {
             for(int i = 0; i<361; i++)
             {
@@ -146,7 +147,7 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totBlack[i]);
             }
         }
-        else if((Gomoku.turnW > 0)&&(connectWhiteFive >= 1))
+        else if((turn==W)&&(connectWhiteFive >= 1))
         {
             for(int i = 0; i<361; i++)
             {
@@ -161,7 +162,7 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totWhite[i]);
             }
         }
-        else if((Gomoku.turnB > 0)&&(connectBlackFour >= 2))
+        else if((turn==B)&&(connectBlackFour >= 2))
         {
             for(int i = 0; i<361; i++)
             {
@@ -176,7 +177,7 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totBlack[i]);
             }
         }
-        else if((Gomoku.turnW > 0)&&(connectWhiteFour >= 2))
+        else if((turn==W)&&(connectWhiteFour >= 2))
         {
             for(int i = 0; i<361; i++)
             {
@@ -191,36 +192,36 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totWhite[i]);
             }
         }
-        // else if((Gomoku.turnB > 0)&&(connectBlackThree >= 4))
-        // {
-        //     for(int i = 0; i<361; i++)
-        //     {
-        //         if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+        else if((turn==B)&&(connectBlackThree > connectWhiteThree)&&(connectWhiteFive==0)&&(connectWhiteFour==0))
+        {            
+            for(int i = 0; i<361; i++)
+            {
+                if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
     
     
-        //         if(totBlack[i] > first_score) {
+                if(totBlack[i] > first_score) {
     
-        //             first_score = totBlack[i];
-        //             first_where = i;
-        //         }
-        //         System.out.printf("%5d ", totBlack[i]);
-        //     }
-        // }
-        // else if((Gomoku.turnW > 0)&&(connectWhiteThree >= 4))
-        // {
-        //     for(int i = 0; i<361; i++)
-        //     {
-        //         if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+                    first_score = totBlack[i];
+                    first_where = i;
+                }
+                System.out.printf("%5d ", totBlack[i]);
+            }
+        }
+        else if((turn==W)&&(connectWhiteThree > connectBlackThree)&&(connectBlackFive==0)&&(connectBlackFour==0))
+        {
+            for(int i = 0; i<361; i++)
+            {
+                if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
     
     
-        //         if(totWhite[i] > first_score) {
+                if(totWhite[i] > first_score) {
     
-        //             first_score = totWhite[i];
-        //             first_where = i;
-        //         }
-        //         System.out.printf("%5d ", totWhite[i]);
-        //     }
-        // }
+                    first_score = totWhite[i];
+                    first_where = i;
+                }
+                System.out.printf("%5d ", totWhite[i]);
+            }
+        }
         else 
         {
             for(int i = 0; i<361; i++)
@@ -236,6 +237,34 @@ class totalScore extends JPanel{
             }
         }
     
+        // if(turn==B){
+        //     for(int i = 0; i<361; i++)
+        //     {
+        //         if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+        //         if(totBlack[i] > first_score) {
+    
+        //             first_score = totBlack[i];
+        //             first_where = i;
+        //         }
+        //         System.out.printf("%5d ", totBlack[i]);
+        //     }
+        // }
+        // if(turn==W){
+        //     for(int i = 0; i<361; i++)
+        //     {
+        //         if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+        //         if(totWhite[i] > first_score) {
+    
+        //             first_score = totWhite[i];
+        //             first_where = i;
+        //         }
+        //         System.out.printf("%5d ", totWhite[i]);
+        //     }
+        // }
 
         System.out.println();
         System.out.print(first_where%19+1);

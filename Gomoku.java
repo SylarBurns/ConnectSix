@@ -109,34 +109,34 @@ public class Gomoku{
                   switch(code){
 
                   
-                     case 88 :
-                        if(AIColor == B){
+                  //    case 88 :
+                  //       if(AIColor == B){
 
-                              if(turnB>0){
-                                    total_Score.setTotal(AI.turn(k, total_Score.first_where));
-                                    turnB-- ;
-                                    if(turnB == 0) turnW = 2;
-                                    k++;
-                                    total_Score.display();
-                                    frame.repaint();
-                                    if(Board.win) System.exit(0);
-                              }
+                  //             if(turnB>0){
+                  //                   total_Score.setTotal(AI.turn(k, total_Score.first_where));
+                  //                   turnB-- ;
+                  //                   if(turnB == 0) turnW = 2;
+                  //                   k++;
+                  //                   total_Score.display();
+                  //                   frame.repaint();
+                  //                   if(Board.win) System.exit(0);
+                  //             }
 
-                        }else{
+                  //       }else{
 
-                              if(turnW>0){
-                                    total_Score.setTotal(AI.turn(k, total_Score.first_where));
-                                    turnW-- ;
-                                    if(turnW == 0) turnB = 2;
-                                    k++;
-                                    total_Score.display();
-                                    frame.repaint();
-                                    if(Board.win) System.exit(0);
-                              }    
+                  //             if(turnW>0){
+                  //                   total_Score.setTotal(AI.turn(k, total_Score.first_where));
+                  //                   turnW-- ;
+                  //                   if(turnW == 0) turnB = 2;
+                  //                   k++;
+                  //                   total_Score.display();
+                  //                   frame.repaint();
+                  //                   if(Board.win) System.exit(0);
+                  //             }    
 
-                        }
+                  //       }
 
-                     break;
+                  //    break;
 
                      case 38 :
                      if(User.GetY() > 10) User.SetLocation(User.GetX(), User.GetY()-40);
@@ -204,35 +204,35 @@ public class Gomoku{
             }
             public void keyReleased(java.awt.event.KeyEvent e) {
 
-                  while(((userColor==B)&&(turnW>0))||((userColor==W)&&(turnB>0))) {
-            		setboard[k].SetLocation((total_Score.get_first_where()%19+1)*40-30, (total_Score.get_first_where()/19+1)*40-30);
-                    for(int i=0;i<361;i++)
-                        if((setboard[k].GetX()==board[i].GetX())&&
-                           (setboard[k].GetY()==board[i].GetY()))
-                            if(board[i].Getis() == false)
-                            {
-                               board[i].Setis(true);
+                  // while(((userColor==B)&&(turnW>0))||((userColor==W)&&(turnB>0))) {
+            	// 	setboard[k].SetLocation((total_Score.get_first_where()%19+1)*40-30, (total_Score.get_first_where()/19+1)*40-30);
+                  //   for(int i=0;i<361;i++)
+                  //       if((setboard[k].GetX()==board[i].GetX())&&
+                  //          (setboard[k].GetY()==board[i].GetY()))
+                  //           if(board[i].Getis() == false)
+                  //           {
+                  //              board[i].Setis(true);
                                
-                                if(turnW > 0)
-                               {
-                                  board[i].BW = W;
-                                  turnW-- ;
-                                  if(turnW == 0) turnB = 2;
-                                  total_Score.setTotal(board[i]);
-                               }
-                               else if(turnB > 0) 
-                               {
-                                  board[i].BW = B;
-                                  turnB-- ;
-                                  if(turnB == 0) turnW = 2;
-                                  total_Score.setTotal(board[i]);
-                               }
-                                k++;
-                            }
-                    total_Score.display();
-                    frame.repaint();
-					if(Board.win) System.exit(0);
-            	}
+                  //               if(turnW > 0)
+                  //              {
+                  //                 board[i].BW = W;
+                  //                 turnW-- ;
+                  //                 if(turnW == 0) turnB = 2;
+                  //                 total_Score.setTotal(board[i]);
+                  //              }
+                  //              else if(turnB > 0) 
+                  //              {
+                  //                 board[i].BW = B;
+                  //                 turnB-- ;
+                  //                 if(turnB == 0) turnW = 2;
+                  //                 total_Score.setTotal(board[i]);
+                  //              }
+                  //               k++;
+                  //           }
+                  //   total_Score.display();
+                  //   frame.repaint();
+			// 		if(Board.win) System.exit(0);
+            	// }
             	
             }
             
