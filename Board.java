@@ -24,9 +24,8 @@ class Board extends JPanel {
 		g.drawString("Left : a", 800, 55) ;
 		g.drawString("Right : d\n", 800, 70) ;
 		g.drawString("Stone Down : space\n", 800, 85) ;
-		g.drawString("Undo: x\n", 800, 100);
-		g.drawString((Gomoku.total_Score.get_first_where()%19+1)+", "+((Gomoku.total_Score.get_first_where())/19+1), 800, 130) ;
-		g.drawString("W: "+Gomoku.turnW+"/nB: "+Gomoku.turnB, 800, 145);
+		g.drawString((Gomoku.total_Score.get_first_where()%19+1)+", "+((Gomoku.total_Score.get_first_where())/19+1), 800, 100) ;
+		g.drawString("W: "+Gomoku.turnW+"/nB: "+Gomoku.turnB, 800, 115);
 		for(int i=25; i<750; i=i+40){
 			
 		g.drawLine(25, i, 745, i);
@@ -34,53 +33,17 @@ class Board extends JPanel {
 		
 		}
 
-		g.drawString("1", 760, 25);
-		g.drawString("2", 760, 65);
-		g.drawString("3", 760, 105);
-		g.drawString("4", 760, 145);
-		g.drawString("5", 760, 185);
-		g.drawString("6", 760, 225);
-		g.drawString("7", 760, 265);
-		g.drawString("8", 760, 305);
-		g.drawString("9", 760, 345);
-		g.drawString("10", 760, 385);
-		g.drawString("11", 760, 425);
-		g.drawString("12", 760, 465);
-		g.drawString("13", 760, 505);
-		g.drawString("14", 760, 545);
-		g.drawString("15", 760, 585);
-		g.drawString("16", 760, 625);
-		g.drawString("17", 760, 665);
-		g.drawString("18", 760, 705);
-		g.drawString("19", 760, 745);
-
-		g.drawString("1", 25, 760);
-		g.drawString("2", 65, 760);
-		g.drawString("3", 105, 760);
-		g.drawString("4", 145, 760);
-		g.drawString("5", 185, 760);
-		g.drawString("6", 225, 760);
-		g.drawString("7", 265, 760);
-		g.drawString("8", 305, 760);
-		g.drawString("9", 345, 760);
-		g.drawString("10", 385, 760);
-		g.drawString("11", 425, 760);
-		g.drawString("12", 465, 760);
-		g.drawString("13", 505, 760);
-		g.drawString("14", 545, 760);
-		g.drawString("15", 585, 760);
-		g.drawString("16", 625, 760);
-		g.drawString("17", 665, 760);
-		g.drawString("18", 705, 760);
-		g.drawString("19", 745, 760);
-
-
+		for(int i = 0 ; i < 19; i++)
+		{
+			String s = new String(Integer.toString(i+1));
+			g.drawString(s, 760, 25 + (i*40));
+			g.drawString(s, 25 + (i*40), 760);
+		}
 
 
 		for(int i=0; i<361; i++)
 			if(Gomoku.board[i].Getis()==true)
 			{
-
 				if(Gomoku.board[i].BW == B) g.setColor(new Color(0,0,0));
 				else						g.setColor(new Color(255,255,255));
 				
