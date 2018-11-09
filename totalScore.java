@@ -108,6 +108,10 @@ class totalScore extends JPanel{
         int connectWhiteOpenThree = 0;
         int connectBlackClosedThree = 0;
         int connectWhiteClosedThree = 0;
+        int connectBlackOpenTwo = 0;
+        int connectWhiteOpenTwo = 0;
+        int connectBlackClosedTwo = 0;
+        int connectWhiteClosedTwo = 0;
 
         System.out.print("\nScore Board\n");
 
@@ -121,10 +125,16 @@ class totalScore extends JPanel{
             if(totWhite[i] >= 100000) connectWhiteFive++;
             if(totBlack[i] >= 10000)  connectBlackFour++;
             if(totWhite[i] >= 10000)  connectWhiteFour++;
-            if((totBlack[i] >= 300)&&(totBlack[i] < 10000))  connectBlackOpenThree++;
-            if((totWhite[i] >= 300)&&(totWhite[i] < 10000))  connectWhiteOpenThree++;
-            if((totBlack[i] >= 100)&&(totBlack[i] < 300))    connectBlackClosedThree++;
-            if((totWhite[i] >= 100)&&(totWhite[i] < 300))    connectWhiteClosedThree++;
+            if((totBlack[i] >= 300)&&(totBlack[i] < 10000)) connectBlackOpenThree++;
+            if((totWhite[i] >= 300)&&(totWhite[i] < 10000)) connectWhiteOpenThree++;
+            if((totBlack[i] >= 100)&&(totBlack[i] < 300)) connectBlackClosedThree++;
+            if((totWhite[i] >= 100)&&(totWhite[i] < 300)) connectWhiteClosedThree++;
+            if((totBlack[i] >= 40)&&(totBlack[i] < 100))      connectBlackOpenTwo++;
+            if((totWhite[i] >= 40)&&(totWhite[i] < 100))      connectWhiteOpenTwo++;
+            if((totBlack[i] >= 40)&&(totBlack[i] < 40))     connectBlackClosedTwo++;
+            if((totWhite[i] >= 10)&&(totWhite[i] < 40))     connectWhiteClosedTwo++;
+
+
         }
 
 
@@ -225,6 +235,41 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totWhite[i]);
             }
         }
+        else if((turn==B)&&(connectBlackClosedThree >= 1)
+                         &&(connectWhiteFive==0)
+                         &&(connectWhiteFour==0))
+        {
+            for(int i = 0; i<361; i++)
+            {
+                if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+                if(totBlack[i] > first_score) {
+    
+                    first_score = totBlack[i];
+                    first_where = i;
+                }
+                System.out.printf("%5d ", totBlack[i]);
+            }
+        }
+        else if((turn==W)&&(connectWhiteClosedThree >= 1)
+                         &&(connectBlackFive==0)
+                         &&(connectBlackFour==0))
+        {
+            for(int i = 0; i<361; i++)
+            {
+                if(i%19 == 0) System.out.printf("\n\n%5d", i/19+1);
+    
+    
+                if(totWhite[i] > first_score) {
+    
+                    first_score = totWhite[i];
+                    first_where = i;
+                }
+                System.out.printf("%5d ", totWhite[i]);
+            }
+        }
+        
         else 
         {
             for(int i = 0; i<361; i++)
@@ -316,7 +361,7 @@ class totalScore extends JPanel{
                     }
                 }
             }
-            else if((blackNum==3)&&(notNum==3)&&(Gomoku.turnB!=1))
+            else if((blackNum==3)&&(notNum==3))
             {
                 for(int a = 0; a < 6; a++){
                     if(Gomoku.board[num+a].BW==N){
@@ -360,7 +405,7 @@ class totalScore extends JPanel{
                     }
                 }
             }
-            else if((whiteNum==3)&&(notNum==3)&&(Gomoku.turnW!=1))
+            else if((whiteNum==3)&&(notNum==3))
             {
                 for(int a = 0; a < 6; a++){
                     if(Gomoku.board[num+a].BW==N){
@@ -418,7 +463,7 @@ class totalScore extends JPanel{
                     }   
                 }
             }
-            else if((blackNum==3)&&(notNum==3)&&(Gomoku.turnB!=1))
+            else if((blackNum==3)&&(notNum==3))
             {
                 for(int a = 0; a  < 114; a += 19){
                     if(Gomoku.board[num+a].BW==N){
@@ -461,7 +506,7 @@ class totalScore extends JPanel{
                     }   
                 }
             }
-            else if((whiteNum==3)&&(notNum==3)&&(Gomoku.turnW!=1))
+            else if((whiteNum==3)&&(notNum==3))
             {
                 for(int a = 0; a  < 114; a += 19){
                     if(Gomoku.board[num+a].BW==N){
@@ -519,7 +564,7 @@ class totalScore extends JPanel{
                     }
                 }
             }
-            else if((blackNum==3)&&(notNum==3)&&(Gomoku.turnB!=1))
+            else if((blackNum==3)&&(notNum==3))
             {
                 for(int a = 0; a < 108 ; a += 18){
                     if(Gomoku.board[num+a].BW ==N){
@@ -562,7 +607,7 @@ class totalScore extends JPanel{
                     }
                 }
             }
-            else if((whiteNum==3)&&(notNum==3)&&(Gomoku.turnW!=1))
+            else if((whiteNum==3)&&(notNum==3))
             {
                 for(int a = 0; a < 108 ; a += 18){
                     if(Gomoku.board[num+a].BW ==N){
@@ -626,7 +671,7 @@ class totalScore extends JPanel{
                     }
                 }
             }
-            else if((blackNum==3)&&(notNum==3)&&(Gomoku.turnB!=1))
+            else if((blackNum==3)&&(notNum==3))
             {
                 for(int a = 0; a < 120; a += 20){
                     if(Gomoku.board[num+a].BW==N){
@@ -670,7 +715,7 @@ class totalScore extends JPanel{
                     }
                 }
             }
-            else if((whiteNum==3)&&(notNum==3)&&(Gomoku.turnW!=1))
+            else if((whiteNum==3)&&(notNum==3))
             {
                 for(int a = 0; a < 120; a += 20){
                     if(Gomoku.board[num+a].BW==N){
