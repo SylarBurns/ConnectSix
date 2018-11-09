@@ -9,6 +9,8 @@ class Location {
 	int BW;
 	boolean is;
 
+	
+
 
 	public Location(){
 		Lox = 0;

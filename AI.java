@@ -1,24 +1,110 @@
-class AI{  // 컴퓨터가 계산해서 최적의 위치를 반환하는 class를 구현
-
+class AI{  // the new score system for win
 	private static final int B = 0;
 	private static final int W = 1;
     private static final int N = -1;
     
-    private static int color;
+    boolean blackFive;
+    boolean blackFour;
+    boolean blackThree;
+    boolean blackTwo;
+    boolean whiteFive;
+    boolean whiteFour;
+    boolean whiteThree;
+    boolean whiteTwo;
+
+    int Score;
     
 
-    AI(int color){
+    AI(){
 
-        this.color = color ;
+        blackFive  = false;
+        blackFour  = false;
+        blackThree = false;
+        blackTwo   = false;
+        whiteFive  = false;
+        whiteFour  = false;
+        whiteThree = false;
+        whiteTwo   = false;
 
+        Score = 0;
     }
-    static Location turn(int k, int where){
 
-        Gomoku.board[where].Setis(true) ;        // 검은색 돌은 처음에 가운데에 무조건 놓여있어야 한다.    
-        Gomoku.board[where].BW = color ; 
-        Gomoku.setboard[k] = Gomoku.board[where] ;
+    void turnOn(int num, int color){
 
-        return Gomoku.setboard[k];
+        if(color == B){
+
+            if(num==5) blackFive  = true;
+            if(num==4) blackFour  = true;
+            if(num==3) blackThree = true;
+            if(num==2) blackTwo   = true;
+
+        }else if(color == W){
+
+            if(num==5) whiteFive  = true;
+            if(num==4) whiteFour  = true;
+            if(num==3) whiteThree = true;
+            if(num==2) whiteTwo   = true;
+
+        }
+
+        if(blackFive == true){
+
+            blackFour  = false;
+            blackThree = false;
+            blackTwo   = false;
+        }else if(blackFour == true){
+
+            blackThree = false;
+            blackTwo   = false;
+        }else if(blackThree == true){
+
+            blackTwo = false;
+        }
+
+        if(whiteFive == true){
+
+            whiteFour  = false;
+            whiteThree = false;
+            whiteTwo   = false;
+        }else if(whiteFour == true){
+
+            whiteThree = false;
+            whiteTwo   = false;
+        }else if(whiteThree == true){
+
+            whiteTwo = false;
+        }
     }
+
+    void calculate(){
+
+        if(blackFive == true)       Score += 1000;
+        else if(blackFour == true)  Score += 400;
+        else if(blackThree == true) Score += 40;
+        else if(blackTwo == true)   Score += 10;
+
+        if(whiteFive == true)       Score += 1000;
+        else if(whiteFour == true)  Score += 400;
+        else if(whiteThree == true) Score += 40;
+        else if(whiteTwo == true)   Score += 10;
+
+        
+    }
+
+    void turnOff(){
+
+        blackFive  = false;
+        blackFour  = false;
+        blackThree = false;
+        blackTwo   = false;
+        whiteFive  = false;
+        whiteFour  = false;
+        whiteThree = false;
+        whiteTwo   = false;
+
+        Score = 0;
+    }
+
+
 	
 }
