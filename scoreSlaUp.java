@@ -4,8 +4,8 @@ class scoreSlaUp{
 	private static final int W = 1;  // color white : 1
 	private static final int N = -1; // no stone    : -1
 
-    int [] blackScore = new int[361];
-    int [] whiteScore = new int[361];
+    public int [] blackScore = new int[361];
+    public int [] whiteScore = new int[361];
 
 
     scoreSlaUp(){

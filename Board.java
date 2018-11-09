@@ -24,8 +24,9 @@ class Board extends JPanel {
 		g.drawString("Left : a", 800, 55) ;
 		g.drawString("Right : d\n", 800, 70) ;
 		g.drawString("Stone Down : space\n", 800, 85) ;
-		g.drawString((Gomoku.total_Score.get_first_where()%19+1)+", "+((Gomoku.total_Score.get_first_where())/19+1), 800, 100) ;
-		g.drawString("W: "+Gomoku.turnW+"/nB: "+Gomoku.turnB, 800, 115);
+		g.drawString("Undo: x\n", 800, 100);
+		g.drawString((Gomoku.total_Score.get_first_where()%19+1)+", "+((Gomoku.total_Score.get_first_where())/19+1), 800, 130) ;
+		g.drawString("W: "+Gomoku.turnW+"/nB: "+Gomoku.turnB, 800, 145);
 		for(int i=25; i<750; i=i+40){
 			
 		g.drawLine(25, i, 745, i);

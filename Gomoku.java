@@ -100,42 +100,49 @@ public class Gomoku{
       System.out.println("Check");
       
 
+      StackUsingGeneric<Location> undo_location = new StackUsingGeneric(4);
+      StackUsingGeneric<totalScore> undo_score = new StackUsingGeneric(4);
+
 
          class Key implements KeyListener {
 
             public void keyPressed(java.awt.event.KeyEvent e) {
                   int code=e.getKeyCode();
+                  totalScore temp1;
+                  Location temp2;
                   switch(code){
 
                   
-                  //    case 88 :
-                  //       if(AIColor == B){
+                     case 88 :
+                        if((undo_location.isStackEmpty() != true ) && (undo_score.isStackEmpty() != true)){
+                              totalScore prev_score = new totalScore(undo_score.pop());
+                              Location prev_location = new Location(undo_location.pop());
+                              
+                              if(prev_location.BW == 0){ // previous turn was black.
+                                    turnB++;
+                                    turnW = 0;
+                              }else if(prev_location.BW == 1){ // previous turn was white.
+                                    turnW++;
+                                    turnB = 0;
+                              }
 
-                  //             if(turnB>0){
-                  //                   total_Score.setTotal(AI.turn(k, total_Score.first_where));
-                  //                   turnB-- ;
-                  //                   if(turnB == 0) turnW = 2;
-                  //                   k++;
-                  //                   total_Score.display();
-                  //                   frame.repaint();
-                  //                   if(Board.win) System.exit(0);
-                  //             }
+                              total_Score.copyElement(prev_score);
+                              
+                              board[prev_location.getUndoLocation()].BW = -1;
+                              board[prev_location.getUndoLocation()].Setis(false);
+                              setboard[k].Setis(false);
+                              setboard[k].BW = -1;
+                              
 
-                  //       }else{
+                              
 
-                  //             if(turnW>0){
-                  //                   total_Score.setTotal(AI.turn(k, total_Score.first_where));
-                  //                   turnW-- ;
-                  //                   if(turnW == 0) turnB = 2;
-                  //                   k++;
-                  //                   total_Score.display();
-                  //                   frame.repaint();
-                  //                   if(Board.win) System.exit(0);
-                  //             }    
+                              k--;
+                              total_Score.display();
+                              frame.repaint();
+                              if(Board.win) System.exit(0);
+                        }
 
-                  //       }
-
-                  //    break;
+                     break;
 
                      case 38 :
                      if(User.GetY() > 10) User.SetLocation(User.GetX(), User.GetY()-40);
@@ -175,6 +182,10 @@ public class Gomoku{
                               if(turnW > 0)
                               {
                                  board[i].BW = W;
+                                 temp1 = new totalScore(total_Score);
+                                 temp2 = new Location(board[i], i);
+                                 undo_score.push(temp1); // save the total score in a stack.
+                                 undo_location.push(temp2); // save the information of the location in a stack.
                                  turnW-- ;
                                  if(turnW == 0) turnB = 2;
                                  total_Score.setTotal(board[i]);
@@ -182,6 +193,10 @@ public class Gomoku{
                               else if(turnB > 0) 
                               {
                                  board[i].BW = B;
+                                 temp1 = new totalScore(total_Score);
+                                 temp2 = new Location(board[i], i);
+                                 undo_score.push(temp1); // save the total score in a stack.
+                                 undo_location.push(temp2); // save the information of the location in a stack.
                                  turnB-- ;
                                  if(turnB == 0) turnW = 2;
                                  total_Score.setTotal(board[i]);

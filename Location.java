@@ -8,6 +8,7 @@ class Location {
 	int Loy;
 	int BW;
 	boolean is;
+	int undo_location;
 
 	
 
@@ -17,6 +18,27 @@ class Location {
 		Loy = 0;
 		BW = N;
 		is = false;
+		undo_location = -1;
+	}
+
+	public Location(Location obj, int index){
+		Lox = obj.Lox;
+		Loy = obj.Loy;
+		BW = obj.BW;
+		is = obj.is;
+		undo_location = index;
+	}
+
+	public Location(Location obj){
+		Lox = obj.Lox;
+		Loy = obj.Loy;
+		BW = obj.BW;
+		is = obj.is;
+		undo_location = obj.undo_location;
+	}
+
+	public int getUndoLocation(){
+		return undo_location;
 	}
 
 	public void SetLocation(int x, int y){
