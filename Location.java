@@ -118,10 +118,8 @@ class Location {
         total_Score = 0 ;
 	}
 
-	void turnOn(int num, int direction){
-
-		
-
+	void turnOn(int num, int direction)
+	{
 		int now_turn = 0;
 		if(Gomoku.turnB > 0)      now_turn = B;
 		else if(Gomoku.turnW > 0) now_turn = W;
@@ -147,53 +145,55 @@ class Location {
 					if(num==1) whiteRowOne   = true;
 				}
 
-				if(blackRowFive == true)
-				{
-					blackRowFour  = false;
-					blackRowThree = false;
-					blackRowTwo   = false;
-					blackRowOne   = false;
-				}
-				else if(blackRowFour == true)
-				{
-					blackRowThree = false;
-					blackRowTwo   = false;
-					blackRowOne   = false;
-				}
-				else if(blackRowThree == true)
-				{
-					blackRowTwo = false;
-					blackRowOne = false;
-				}
-				else if(blackRowTwo == true)
-				{
-					blackRowOne = false;
-				}
+				// if(blackRowFive == true)
+				// {
+				// 	blackRowFour  = false;
+				// 	blackRowThree = false;
+				// 	blackRowTwo   = false;
+				// 	blackRowOne   = false;
+				// }
+				// else if(blackRowFour == true)
+				// {
+				// 	blackRowThree = false;
+				// 	blackRowTwo   = false;
+				// 	blackRowOne   = false;
+				// }
+				// else if(blackRowThree == true)
+				// {
+				// 	blackRowTwo = false;
+				// 	blackRowOne = false;
+				// }
+				// else if(blackRowTwo == true)
+				// {
+				// 	blackRowOne = false;
+				// }
 
-				if(whiteRowFive == true)
-				{
-					whiteRowFour  = false;
-					whiteRowThree = false;
-					whiteRowTwo   = false;
-					whiteRowOne   = false;
-				}
-				else if(whiteRowFour == true)
-				{
-					whiteRowThree = false;
-					whiteRowTwo   = false;
-					whiteRowOne   = false;
-				}
-				else if(whiteRowThree == true)
-				{
-					whiteRowTwo = false;
-					whiteRowOne = false;
-				}
-				else if(whiteRowTwo == true)
-				{
-					whiteRowOne = false;
-				}
+				// if(whiteRowFive == true)
+				// {
+				// 	whiteRowFour  = false;
+				// 	whiteRowThree = false;
+				// 	whiteRowTwo   = false;
+				// 	whiteRowOne   = false;
+				// }
+				// else if(whiteRowFour == true)
+				// {
+				// 	whiteRowThree = false;
+				// 	whiteRowTwo   = false;
+				// 	whiteRowOne   = false;
+				// }
+				// else if(whiteRowThree == true)
+				// {
+				// 	whiteRowTwo = false;
+				// 	whiteRowOne = false;
+				// }
+				// else if(whiteRowTwo == true)
+				// {
+				// 	whiteRowOne = false;
+				// }
 				break;
 				
+
+
 			case Col :
 
 				if(now_turn == B)
@@ -214,52 +214,52 @@ class Location {
 				}
 
 
-				if(blackColFive == true)
-				{
-					blackColFour  = false;
-					blackColThree = false;
-					blackColTwo   = false;
-					blackColOne   = false;
-				}
-				else if(blackColFour == true)
-				{
-					blackColThree = false;
-					blackColTwo   = false;
-					blackColOne   = false;
-				}
-				else if(blackColThree == true)
-				{
-					blackColTwo = false;
-					blackColOne = false;
-				}
-				else if(blackColTwo == true)
-				{
-					blackColOne = false;
-				}
+				// if(blackColFive == true)
+				// {
+				// 	blackColFour  = false;
+				// 	blackColThree = false;
+				// 	blackColTwo   = false;
+				// 	blackColOne   = false;
+				// }
+				// else if(blackColFour == true)
+				// {
+				// 	blackColThree = false;
+				// 	blackColTwo   = false;
+				// 	blackColOne   = false;
+				// }
+				// else if(blackColThree == true)
+				// {
+				// 	blackColTwo = false;
+				// 	blackColOne = false;
+				// }
+				// else if(blackColTwo == true)
+				// {
+				// 	blackColOne = false;
+				// }
 
 
-				if(whiteColFive == true)
-				{
-					whiteColFour  = false;
-					whiteColThree = false;
-					whiteColTwo   = false;
-					whiteColOne   = false;
-				}
-				else if(whiteColFour == true)
-				{
-					whiteColThree = false;
-					whiteColTwo   = false;
-					whiteColOne   = false;
-				}
-				else if(whiteColThree == true)
-				{
-					whiteColTwo = false;
-					whiteColOne = false;
-				}
-				else if(whiteColTwo == true)
-				{
-					whiteColOne = false;
-				}
+				// if(whiteColFive == true)
+				// {
+				// 	whiteColFour  = false;
+				// 	whiteColThree = false;
+				// 	whiteColTwo   = false;
+				// 	whiteColOne   = false;
+				// }
+				// else if(whiteColFour == true)
+				// {
+				// 	whiteColThree = false;
+				// 	whiteColTwo   = false;
+				// 	whiteColOne   = false;
+				// }
+				// else if(whiteColThree == true)
+				// {
+				// 	whiteColTwo = false;
+				// 	whiteColOne = false;
+				// }
+				// else if(whiteColTwo == true)
+				// {
+				// 	whiteColOne = false;
+				// }
 				break;
 
 			case Sla :
@@ -281,51 +281,51 @@ class Location {
 					if(num==1) whiteSlaOne   = true;
 				}
 
-				if(blackSlaFive == true)
-				{
-					blackSlaFour  = false;
-					blackSlaThree = false;
-					blackSlaTwo   = false;
-					blackSlaOne   = false;
-				}
-				else if(blackSlaFour == true)
-				{
-					blackSlaThree = false;
-					blackSlaTwo   = false;
-					blackSlaOne   = false;
-				}
-				else if(blackSlaThree == true)
-				{
-					blackSlaTwo = false;
-					blackSlaOne = false;
-				}
-				else if(blackSlaTwo == true)
-				{
-					blackSlaOne = false;
-				}
+				// if(blackSlaFive == true)
+				// {
+				// 	blackSlaFour  = false;
+				// 	blackSlaThree = false;
+				// 	blackSlaTwo   = false;
+				// 	blackSlaOne   = false;
+				// }
+				// else if(blackSlaFour == true)
+				// {
+				// 	blackSlaThree = false;
+				// 	blackSlaTwo   = false;
+				// 	blackSlaOne   = false;
+				// }
+				// else if(blackSlaThree == true)
+				// {
+				// 	blackSlaTwo = false;
+				// 	blackSlaOne = false;
+				// }
+				// else if(blackSlaTwo == true)
+				// {
+				// 	blackSlaOne = false;
+				// }
 
-				if(whiteSlaFive == true)
-				{
-					whiteSlaFour  = false;
-					whiteSlaThree = false;
-					whiteSlaTwo   = false;
-					whiteSlaOne   = false;
-				}
-				else if(whiteSlaFour == true)
-				{
-					whiteSlaThree = false;
-					whiteSlaTwo   = false;
-					whiteSlaOne   = false;
-				}
-				else if(whiteSlaThree == true)
-				{
-					whiteSlaTwo = false;
-					whiteSlaOne = false;
-				}
-				else if(whiteSlaTwo == true)
-				{
-					whiteSlaOne = false;
-				}
+				// if(whiteSlaFive == true)
+				// {
+				// 	whiteSlaFour  = false;
+				// 	whiteSlaThree = false;
+				// 	whiteSlaTwo   = false;
+				// 	whiteSlaOne   = false;
+				// }
+				// else if(whiteSlaFour == true)
+				// {
+				// 	whiteSlaThree = false;
+				// 	whiteSlaTwo   = false;
+				// 	whiteSlaOne   = false;
+				// }
+				// else if(whiteSlaThree == true)
+				// {
+				// 	whiteSlaTwo = false;
+				// 	whiteSlaOne = false;
+				// }
+				// else if(whiteSlaTwo == true)
+				// {
+				// 	whiteSlaOne = false;
+				// }
 				break;
 			
 			case Bsl :
@@ -347,51 +347,51 @@ class Location {
 					if(num==1) whiteBslOne   = true;
 				}
 
-				if(blackBslFive == true)
-				{
-					blackBslFour  = false;
-					blackBslThree = false;
-					blackBslTwo   = false;
-					blackBslOne   = false;
-				}
-				else if(blackBslFour == true)
-				{
-					blackBslThree = false;
-					blackBslTwo   = false;
-					blackBslOne   = false;
-				}
-				else if(blackBslThree == true)
-				{
-					blackBslTwo = false;
-					blackBslOne = false;
-				}
-				else if(blackBslTwo == true)
-				{
-					blackBslOne = false;
-				}
+				// if(blackBslFive == true)
+				// {
+				// 	blackBslFour  = false;
+				// 	blackBslThree = false;
+				// 	blackBslTwo   = false;
+				// 	blackBslOne   = false;
+				// }
+				// else if(blackBslFour == true)
+				// {
+				// 	blackBslThree = false;
+				// 	blackBslTwo   = false;
+				// 	blackBslOne   = false;
+				// }
+				// else if(blackBslThree == true)
+				// {
+				// 	blackBslTwo = false;
+				// 	blackBslOne = false;
+				// }
+				// else if(blackBslTwo == true)
+				// {
+				// 	blackBslOne = false;
+				// }
 
-				if(whiteBslFive == true)
-				{
-					whiteBslFour  = false;
-					whiteBslThree = false;
-					whiteBslTwo   = false;
-					whiteBslOne   = false;
-				}
-				else if(whiteBslFour == true)
-				{
-					whiteBslThree = false;
-					whiteBslTwo   = false;
-					whiteBslOne   = false;
-				}
-				else if(whiteBslThree == true)
-				{
-					whiteBslTwo = false;
-					whiteBslOne = false;
-				}
-				else if(whiteBslTwo == true)
-				{
-					whiteBslOne = false;
-				}
+				// if(whiteBslFive == true)
+				// {
+				// 	whiteBslFour  = false;
+				// 	whiteBslThree = false;
+				// 	whiteBslTwo   = false;
+				// 	whiteBslOne   = false;
+				// }
+				// else if(whiteBslFour == true)
+				// {
+				// 	whiteBslThree = false;
+				// 	whiteBslTwo   = false;
+				// 	whiteBslOne   = false;
+				// }
+				// else if(whiteBslThree == true)
+				// {
+				// 	whiteBslTwo = false;
+				// 	whiteBslOne = false;
+				// }
+				// else if(whiteBslTwo == true)
+				// {
+				// 	whiteBslOne = false;
+				// }
 				break;
 		}
 	}
