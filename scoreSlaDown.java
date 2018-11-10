@@ -31,8 +31,8 @@ class scoreSlaDown{
 
 
             whiteScore[num] = 0 ;
-            // int distance = 1;
-            for(int point = 5, distance = 1; point > 0; point--, distance++)
+            int distance = 1;
+            // for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if((j-distance >= 0)&&(i+distance < 19)){        //change score at right
 
                     int d = 18*distance;
@@ -64,8 +64,8 @@ class scoreSlaDown{
             else                   whiteScore[num] *= -1;
 
             blackScore[num] = 0 ;
-            // int distance = 1;
-            for(int point = 5, distance = 1; point > 0; point--, distance++)
+            int distance = 1;
+            // for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if((j-distance >= 0)&&(i+distance < 19)){        //change score at right
 
                     int d = 18*distance;
