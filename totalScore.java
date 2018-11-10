@@ -220,7 +220,7 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", Gomoku.board[i].white_Score);
             }
         }
-        else if((turn==B)&&(connectBlackFour >= 2))
+        else if((turn==B)&&(connectBlackFour >= 2)&&Gomoku.turnB==2)
         {
             for(int i = 0; i<361; i++)
             {
@@ -234,7 +234,7 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", Gomoku.board[i].black_Score);
             }
         }
-        else if((turn==W)&&(connectWhiteFour >= 2))
+        else if((turn==W)&&(connectWhiteFour >= 2)&&Gomoku.turnW==2)
         {
             for(int i = 0; i<361; i++)
             {
@@ -251,7 +251,8 @@ class totalScore extends JPanel{
         else if((turn==B)&&(connectBlackOpenThree >= 2)
                     //    &&(connectBlackClosedThree >= 1)
                        &&(connectWhiteFive==0)
-                       &&(connectWhiteFour==0))
+                       &&(connectWhiteFour==0)
+                       &&(Gomoku.turnB==2))
         {
             for(int i = 0; i<361; i++)
             {
@@ -270,7 +271,8 @@ class totalScore extends JPanel{
         else if((turn==W)&&(connectWhiteOpenThree >= 2)
                     //    &&(connectWhiteClosedThree >= 1)
                        &&(connectBlackFive==0)
-                       &&(connectBlackFour==0))
+                       &&(connectBlackFour==0)
+                       &&Gomoku.turnW==2)
         {
             for(int i = 0; i<361; i++)
             {
