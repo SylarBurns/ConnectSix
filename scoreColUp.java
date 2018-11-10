@@ -31,8 +31,8 @@ class scoreColUp{
 
 
             whiteScore[num] = 0 ;
-            int distance = 1;
-            // for(int point = 5, distance = 1; point > 0; point--, distance++)
+            // int distance = 1;
+            for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if(i-distance >= 0){         //change score at left
 
                     int d = 19*distance ;
@@ -65,8 +65,8 @@ class scoreColUp{
             else                   whiteScore[num] *= -1;
 
             blackScore[num] = 0;
-            int distance = 1;
-            // for(int point = 5, distance = 1; point > 0; point--, distance++)
+            // int distance = 1;
+            for(int point = 5, distance = 1; point > 0; point--, distance++)
                 if(i-distance >= 0){         //change score at left
 
                     int d = 19*distance ;
