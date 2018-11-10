@@ -199,11 +199,7 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totWhite[i]);
             }
         }
-<<<<<<< HEAD
         else if((Gomoku.turnB == 2)&&(connectBlackFour >= 2))
-=======
-        else if((turn==B)&&(connectBlackFour >= 2)&&Gomoku.turnB==2)
->>>>>>> 0cb612cb39110ef64e4c525cfdc9f563b95586a4
         {
             for(int i = 0; i<361; i++)
             {
@@ -218,11 +214,7 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totBlack[i]);
             }
         }
-<<<<<<< HEAD
         else if((Gomoku.turnW == 2)&&(connectWhiteFour >= 2))
-=======
-        else if((turn==W)&&(connectWhiteFour >= 2)&&Gomoku.turnW==2)
->>>>>>> 0cb612cb39110ef64e4c525cfdc9f563b95586a4
         {
             for(int i = 0; i<361; i++)
             {
@@ -237,7 +229,6 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totWhite[i]);
             }
         }
-<<<<<<< HEAD
         else if((Gomoku.turnB == 1)&&(connectBlackFour >= 2))
         {
             if(Gomoku.k<10){
@@ -312,13 +303,6 @@ class totalScore extends JPanel{
                 &&(connectBlackClosedThree >= 1)
                 &&(connectWhiteFive==0)
                 &&(connectWhiteFour==0))
-=======
-        else if((turn==B)&&(connectBlackOpenThree >= 2)
-                       &&(connectBlackClosedThree >= 1)
-                       &&(connectWhiteFive==0)
-                       &&(connectWhiteFour==0)
-                       &&(Gomoku.turnB==2))
->>>>>>> 0cb612cb39110ef64e4c525cfdc9f563b95586a4
         {
             for(int i = 0; i<361; i++)
             {
@@ -333,19 +317,11 @@ class totalScore extends JPanel{
                 System.out.printf("%5d ", totBlack[i]);
             }
         }
-<<<<<<< HEAD
         else if((Gomoku.turnW == 2)
                 &&(connectWhiteOpenThree >= 2)
                 &&(connectWhiteClosedThree >= 1)
                 &&(connectBlackFive==0)
                 &&(connectBlackFour==0))
-=======
-        else if((turn==W)&&(connectWhiteOpenThree >= 2)
-                       &&(connectWhiteClosedThree >= 1)
-                       &&(connectBlackFive==0)
-                       &&(connectBlackFour==0)
-                       &&Gomoku.turnW==2)
->>>>>>> 0cb612cb39110ef64e4c525cfdc9f563b95586a4
         {
             for(int i = 0; i<361; i++)
             {
